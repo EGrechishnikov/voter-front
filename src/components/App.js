@@ -4,7 +4,6 @@ import HomeContainer from "./containters/HomeContainer";
 
 class App extends React.Component {
     render() {
-        console.log('render: ' + localStorage.getItem('user'));
         return (
             <div>
                 {
