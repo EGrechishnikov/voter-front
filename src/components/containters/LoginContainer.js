@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import store from '../Store';
 import $ from 'jquery';
 import Login from '../Login';
+import {USER_ADD} from '../reducers/UsersReducer';
 
 class LoginContainer extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class LoginContainer extends React.Component {
                 console.log(answer);
                 if (answer === true) {
                     store.dispatch({
-                        type: 'USER_ADD',
+                        type: USER_ADD,
                         user: user.login
                     });
                 }
