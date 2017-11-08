@@ -7,11 +7,8 @@ class CreateVote extends React.Component {
         this.createVote = this.createVote.bind(this);
     }
 
-    createVote(event) {
-        let vote = null;
-
-        this.props.createVote(vote);
-        event.preventDefault();
+    createVote() {
+        this.props.createVote(this.name.value);
     }
 
     render() {
@@ -19,10 +16,8 @@ class CreateVote extends React.Component {
             <div>
                 <h1>Создать голосование</h1>
                 <Link to="/">Назад</Link>
-                <form onSubmit={this.createVote}>
-                    <input ref={(input) => {this.name = input}} type="text"/>
-                    <button>Создать</button>
-                </form>
+                <input ref={(input) => {this.name = input}} type="text"/>
+                <button onClick={this.createVote}>Загрузить</button>
             </div>
         );
     }

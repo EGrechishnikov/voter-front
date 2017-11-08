@@ -14,19 +14,20 @@ class CreateVoteContainer extends React.Component {
         store.dispatch({
             type: ADD_VOTE,
             vote : vote
-        })
+        });
+        this.props.history.push('/');
     }
 
     render() {
         return(
-            <CreateVote createVote={this.createVote}/>
+            <CreateVote createVote={this.createVote} votes={this.props.votes}/>
         );
     }
 }
 
 const mapStateToProps = function(store) {
     return {
-        vote : store.voteState.vote
+        votes : store.voteState.votes
     };
 };
 

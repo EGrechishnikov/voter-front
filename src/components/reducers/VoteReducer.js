@@ -1,13 +1,15 @@
 export const ADD_VOTE = 'ADD_VOTE';
 
 const initialVoteState = {
-    vote: null
+    votes: []
 };
 
 const voteReducer = function (state = initialVoteState, action) {
     switch (action.type) {
         case ADD_VOTE :
-            return Object.assign({}, state, {vote : action.vote});
+            let newState = Object.assign({}, state);
+            newState.votes.unshift(action.vote);
+            return newState;
         default :
             return state;
     }
