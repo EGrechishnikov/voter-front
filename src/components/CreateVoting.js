@@ -6,19 +6,28 @@ import CreateVariant from "./CreateVariant";
 class CreateVote extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {variants: [], showCreateVariant: false};
-        this.createVote = this.createVote.bind(this);
+        this.state = {variants: [], showCreateVariant: false, validationMessage: ''};
+        this.createVoting = this.createVoting.bind(this);
         this.addVariant = this.addVariant.bind(this);
         this.showCreateVariant = this.showCreateVariant.bind(this);
         this.hideCreateVariant = this.hideCreateVariant.bind(this);
     }
 
-    createVote() {
-        this.props.createVote({
-            name: this.name.value,
-            description: this.description.value,
-            variants: this.state.variants
-        });
+    createVoting() {
+        let validationMessage = '';
+        if (this.name.value.length <= 0) {
+            validationMessage = 'Введите название';
+        } else if (this.state.variants.length < 2) {
+            validationMessage = 'Меньше 2 вариантов';
+        }
+        this.setState({validationMessage: validationMessage});
+        if (validationMessage === '') {
+            this.props.createVoting({
+                name: this.name.value,
+                description: this.description.value,
+                variants: this.state.variants
+            });
+        }
     }
 
     showCreateVariant() {
@@ -32,16 +41,20 @@ class CreateVote extends React.Component {
     addVariant(variant) {
         let tmpArr = this.state.variants;
         tmpArr.push(variant);
-        this.setState({variants: tmpArr, showCreateVariant : false});
+        this.setState({variants: tmpArr, showCreateVariant: false});
     }
 
     render() {
         return (
             <div>
-                <h1>Создать голосование</h1>
                 <Link to="/">Назад</Link>
-                <input ref={(input) => {this.name = input}} type="text"/>
-                <input ref={(input) => {this.description = input}} type="text"/>
+                <h1>Создать голосование</h1>
+                <label>Название</label><input ref={(input) => {
+                this.name = input
+            }} type="text"/>
+                <label>Описание</label><input ref={(input) => {
+                this.description = input
+            }} type="text"/>
                 <h2>Варианты</h2>
                 {
                     this.state.variants.map((variant) => {
@@ -56,7 +69,8 @@ class CreateVote extends React.Component {
                         </div> :
                         <button onClick={this.showCreateVariant}>+</button>
                 }
-                <button onClick={this.createVote}>Создать</button>
+                <button onClick={this.createVoting}>Создать</button>
+                <h3>{this.state.validationMessage}</h3>
             </div>
         );
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateVote from "../CreateVote";
+import CreateVoting from "../CreateVoting";
 import store from "../Store";
 import {ADD_VOTE} from '../reducers/VoteReducer';
 import {connect} from "react-redux";
@@ -20,7 +20,7 @@ class CreateVoteContainer extends React.Component {
 
     render() {
         return(
-            <CreateVote createVote={this.createVote} votes={this.props.votes}/>
+            <CreateVoting createVoting={this.createVote} votes={this.props.votes}/>
         );
     }
 }
