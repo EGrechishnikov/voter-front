@@ -33,7 +33,7 @@ class RegistrationContainer extends React.Component {
             data: JSON.stringify(user),
             contentType: "application/json",
             type: 'POST',
-            success: function (answer) {
+            success: (answer) => {
                 console.log(answer);
                 if (answer === true) {
                     store.dispatch({
@@ -48,7 +48,7 @@ class RegistrationContainer extends React.Component {
                     });
                 }
             },
-            error: function () {
+            error: () => {
                 console.log('error');
             }
         });
@@ -64,7 +64,7 @@ class RegistrationContainer extends React.Component {
     }
 }
 
-const mapStateToProps = function (store) {
+const mapStateToProps = (store) => {
     return {
         user: store.userState.user,
         validationMessage: store.validState.validationMessage

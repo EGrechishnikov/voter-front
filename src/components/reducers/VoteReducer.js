@@ -1,4 +1,4 @@
-export const ADD_VOTE = 'ADD_VOTE';
+export const UPDATE_VOTES = 'UPDATE_VOTES';
 
 const initialVoteState = {
     votes: []
@@ -6,10 +6,8 @@ const initialVoteState = {
 
 const voteReducer = function (state = initialVoteState, action) {
     switch (action.type) {
-        case ADD_VOTE :
-            let newState = Object.assign({}, state);
-            newState.votes.unshift(action.vote);
-            return newState;
+        case UPDATE_VOTES :
+            return Object.assign({}, state, {votes : action.votes});
         default :
             return state;
     }

@@ -4,10 +4,13 @@ import Home from "./Home";
 
 class App extends React.Component {
     render() {
+        let user = localStorage.user !== undefined ? JSON.parse(localStorage.user) : null;
         return (
             <div>
                 {
-                    localStorage.user !== undefined ? <Home/> : <Entrance/>
+                    user !== null && user.login !== undefined && user.id !== 0 ?
+                        <Home/> :
+                        <Entrance/>
                 }
             </div>
         );

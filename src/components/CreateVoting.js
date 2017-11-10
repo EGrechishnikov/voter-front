@@ -25,7 +25,9 @@ class CreateVote extends React.Component {
             this.props.createVoting({
                 name: this.name.value,
                 description: this.description.value,
-                variants: this.state.variants
+                creator : JSON.parse(localStorage.user),
+                variants: this.state.variants,
+                openDate: new Date()
             });
         }
     }

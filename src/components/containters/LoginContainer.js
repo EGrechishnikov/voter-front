@@ -18,17 +18,17 @@ class LoginContainer extends React.Component {
             data: JSON.stringify(user),
             contentType: "application/json",
             type: 'POST',
-            success: function (answer) {
-                console.log(answer);
-                if (answer === true) {
+            success: (user) => {
+                console.log(user);
+                if (user !== null && user.id !== 0) {
                     store.dispatch({
                         type: USER_ADD,
-                        user: user.login
+                        user: user
                     });
                 }
                 currentContext.props.history.push('/');
             },
-            error: function () {
+            error: () => {
                 console.log('error');
             }
         });
@@ -41,7 +41,7 @@ class LoginContainer extends React.Component {
     }
 }
 
-const mapStateToProps = function (store) {
+const mapStateToProps = (store) => {
     return {
         user: store.userState.user
     };

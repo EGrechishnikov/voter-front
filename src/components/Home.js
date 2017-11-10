@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import CreateVoteContainer from "./containters/CreateVoteContainer";
+import CreateVoteContainer from "./containters/CreateVotingContainer";
 import {USER_REMOVE} from "./reducers/UsersReducer";
 import store from './Store';
 import VotingListContainer from "./containters/VotingListContainer";

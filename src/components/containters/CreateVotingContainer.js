@@ -1,8 +1,7 @@
 import React from 'react';
 import CreateVoting from "../CreateVoting";
-import store from "../Store";
-import {ADD_VOTE} from '../reducers/VoteReducer';
 import {connect} from "react-redux";
+import $ from 'jquery';
 
 class CreateVoteContainer extends React.Component {
     constructor(props) {
@@ -11,11 +10,20 @@ class CreateVoteContainer extends React.Component {
     }
 
     createVote(vote) {
-        store.dispatch({
-            type: ADD_VOTE,
-            vote : vote
+        const currentContext = this;
+        console.log(JSON.stringify(vote));
+        $.ajax({
+            url: 'http://localhost:8080/voter/voting/add',
+            data: JSON.stringify(vote),
+            contentType: "application/json",
+            type: 'POST',
+            success: () => {
+                currentContext.props.history.push('/');
+            },
+            error: () => {
+                console.log('error');
+            }
         });
-        this.props.history.push('/');
     }
 
     render() {
@@ -25,7 +33,7 @@ class CreateVoteContainer extends React.Component {
     }
 }
 
-const mapStateToProps = function(store) {
+const mapStateToProps = (store) => {
     return {
         votes : store.voteState.votes
     };
