@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import Variant from "./Variant";
 import CreateVariant from "./CreateVariant";
 
-class CreateVote extends React.Component {
+class CreateVoting extends React.Component {
     constructor(props) {
         super(props);
         this.state = {variants: [], showCreateVariant: false, validationMessage: ''};
@@ -25,7 +25,7 @@ class CreateVote extends React.Component {
             this.props.createVoting({
                 name: this.name.value,
                 description: this.description.value,
-                creator : JSON.parse(localStorage.user),
+                creator: JSON.parse(localStorage.user),
                 variants: this.state.variants,
                 openDate: new Date()
             });
@@ -57,6 +57,9 @@ class CreateVote extends React.Component {
                 <label>Описание</label><input ref={(input) => {
                 this.description = input
             }} type="text"/>
+                <label>Изображение</label><input ref={(input) => {
+                this.image = input
+            }} type="file"/>
                 <h2>Варианты</h2>
                 {
                     this.state.variants.map((variant) => {
@@ -78,4 +81,4 @@ class CreateVote extends React.Component {
     }
 }
 
-export default CreateVote;
+export default CreateVoting;

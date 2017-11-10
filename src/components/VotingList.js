@@ -8,10 +8,10 @@ class VotingList extends React.Component {
                 <h1>Список голосований</h1>
                 <Link to="/create">Создать</Link>
                 {
-                    this.props.votes.map(function (vote) {
-                        return <div key={vote.id}>
-                            <h2>{vote.name}</h2>
-                            <h3>{vote.description}</h3>
+                    this.props.votings.map((voting) => {
+                        return <div key={voting.id}>
+                            <Link to={'/voting/' + voting.id}><h2>{voting.name}</h2></Link>
+                            <h3>{voting.description}</h3>
                         </div>
                     })
                 }

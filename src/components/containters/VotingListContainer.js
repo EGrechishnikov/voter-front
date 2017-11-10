@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import VotingList from "../VotingList";
 import store from "../Store";
-import {UPDATE_VOTES} from "../reducers/VoteReducer";
+import {UPDATE_VOTINGS} from "../reducers/VoteReducer";
 import $ from 'jquery';
 
 class VotingListContainer extends React.Component {
@@ -23,8 +23,8 @@ class VotingListContainer extends React.Component {
             contentType: "application/json",
             success : (list) => {
                 store.dispatch({
-                    type : UPDATE_VOTES,
-                    votes : list
+                    type : UPDATE_VOTINGS,
+                    votings : list
                 })
             },
             error : () => {
@@ -35,14 +35,14 @@ class VotingListContainer extends React.Component {
 
     render() {
         return(
-            <VotingList votes={this.props.votes}/>
+            <VotingList votings={this.props.votings}/>
         );
     }
 }
 
 const mapStateToProps = (store) => {
     return {
-        votes : store.voteState.votes
+        votings : store.votingState.votings
     };
 };
 

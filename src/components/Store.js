@@ -6,7 +6,7 @@ import voteReducer from "./reducers/VoteReducer";
 const reducers = combineReducers({
     userState : userReducer,
     validState : validationReducer,
-    voteState : voteReducer
+    votingState : voteReducer
 });
 
 let store = createStore(reducers);

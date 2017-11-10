@@ -28,14 +28,14 @@ class CreateVoteContainer extends React.Component {
 
     render() {
         return(
-            <CreateVoting createVoting={this.createVote} votes={this.props.votes}/>
+            <CreateVoting createVoting={this.createVote} votings={this.props.votings}/>
         );
     }
 }
 
 const mapStateToProps = (store) => {
     return {
-        votes : store.voteState.votes
+        votes : store.votingState.votings
     };
 };
 
