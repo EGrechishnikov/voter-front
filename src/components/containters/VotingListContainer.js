@@ -8,7 +8,7 @@ import $ from 'jquery';
 class VotingListContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.updateVotingList = this.updateVotingList.bind(this);
+        // this.updateVotingList = this.updateVotingList.bind(this);
     }
 
     componentWillMount() {

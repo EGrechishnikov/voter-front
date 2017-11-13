@@ -12,7 +12,6 @@ class LoginContainer extends React.Component {
     }
 
     doLogin(user) {
-        const currentContext = this;
         $.ajax({
             url: "http://localhost:8080/voter/user/login",
             data: JSON.stringify(user),
@@ -26,7 +25,7 @@ class LoginContainer extends React.Component {
                         user: user
                     });
                 }
-                currentContext.props.history.push('/');
+                this.props.history.push('/');
             },
             error: () => {
                 console.log('error');

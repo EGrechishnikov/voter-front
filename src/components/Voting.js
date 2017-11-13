@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 
 class Voting extends React.Component {
     render() {
-        console.log(this.props.voting);
         if (this.props.voting === null) {
             return (
                 <Link to="/"><h3>Назад</h3></Link>

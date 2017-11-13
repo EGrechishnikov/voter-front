@@ -27,7 +27,6 @@ class RegistrationContainer extends React.Component {
     }
 
     doReg(user) {
-        const currentContext = this;
         $.ajax({
             url: "http://localhost:8080/voter/user/add",
             data: JSON.stringify(user),
@@ -40,7 +39,7 @@ class RegistrationContainer extends React.Component {
                         type: USER_ADD,
                         user: user.login
                     });
-                    currentContext.props.history.push('/');
+                    this.props.history.push('/');
                 } else {
                     store.dispatch({
                         type: ENTRANCE_VALIDATION,

@@ -10,7 +10,6 @@ class CreateVoteContainer extends React.Component {
     }
 
     createVote(vote) {
-        const currentContext = this;
         console.log(JSON.stringify(vote));
         $.ajax({
             url: 'http://localhost:8080/voter/voting/add',
@@ -18,7 +17,7 @@ class CreateVoteContainer extends React.Component {
             contentType: "application/json",
             type: 'POST',
             success: () => {
-                currentContext.props.history.push('/');
+                this.props.history.push('/');
             },
             error: () => {
                 console.log('error');
