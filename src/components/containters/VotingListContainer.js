@@ -6,11 +6,6 @@ import {UPDATE_VOTINGS} from "../reducers/VoteReducer";
 import $ from 'jquery';
 
 class VotingListContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        // this.updateVotingList = this.updateVotingList.bind(this);
-    }
-
     componentWillMount() {
         this.updateVotingList();
     }

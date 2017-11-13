@@ -63,7 +63,9 @@ class CreateVoting extends React.Component {
                 <h2>Варианты</h2>
                 {
                     this.state.variants.map((variant) => {
-                        return <Variant key={variant.name} name={variant.name} description={variant.description}/>
+                        return <Variant key={variant.name}
+                                        name={variant.name}
+                                        description={variant.description}/>
                     })
                 }
                 {

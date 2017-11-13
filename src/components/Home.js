@@ -8,12 +8,7 @@ import VotingContainer from "./containters/VotingContainer";
 
 
 export default class Home extends React.Component {
-    constructor(props) {
-        super(props);
-        // this.doLogout = this.doLogout.bind(this);
-    }
-
-    static doLogout() {
+    doLogout() {
         console.log('LogOut');
         store.dispatch({
             type: USER_REMOVE
