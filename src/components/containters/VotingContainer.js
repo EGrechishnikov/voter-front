@@ -2,13 +2,19 @@ import React from 'react';
 import Voting from "../Voting";
 import {connect} from "react-redux";
 import store from "../Store";
-import {GET_VOTING} from "../reducers/VoteReducer";
+import {GET_VOTING, REMOVE_CURRENT_VOTING} from "../reducers/VoteReducer";
 
 class VotingContainer extends React.Component {
     componentWillMount() {
         store.dispatch({
             type : GET_VOTING,
             id : Number(this.props.match.params.id)
+        });
+    }
+
+    componentWillUnmount() {
+        store.dispatch({
+            type : REMOVE_CURRENT_VOTING
         })
     }
 

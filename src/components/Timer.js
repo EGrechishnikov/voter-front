@@ -3,7 +3,7 @@ import React from 'react';
 class Timer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {seconds: (new Date(this.props.border) - new Date()) / 1000};
+        this.state = {seconds: Math.floor((new Date(this.props.border) - new Date()) / 1000)};
         this.timer = this.timer.bind(this);
     }
 
@@ -45,7 +45,7 @@ class Timer extends React.Component {
         let sec = Timer.formatNumber(seconds - (hour * 3600 + min * 60))
         return (
             <div>
-                До конца голосования осталось {hour} : {min} : {sec}
+                До конца голосования осталось {hour}:{min}:{sec}
             </div>
         );
     }

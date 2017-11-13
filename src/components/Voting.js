@@ -15,13 +15,11 @@ class Voting extends React.Component {
     }
 
     render() {
-        console.log('render');
         if (this.props.voting === null) {
             return (
                 <Link to="/"><h3>Назад</h3></Link>
             );
         }
-        console.log(this.props.voting.closingDate);
         let voting = this.props.voting;
         let openDate = new Date(voting.openDate).toLocaleString('ru');
         return (

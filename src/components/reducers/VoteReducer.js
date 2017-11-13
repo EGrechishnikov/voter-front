@@ -1,5 +1,6 @@
 export const UPDATE_VOTINGS = 'UPDATE_VOTINGS';
 export const GET_VOTING = 'GET_VOTING';
+export const REMOVE_CURRENT_VOTING = 'REMOVE_CURRENT_VOTING';
 
 const initialVoteState = {
     votings: [],
@@ -19,6 +20,10 @@ const voteReducer = function (state = initialVoteState, action) {
                 voting : state.votings.filter((voting) => {
                     return voting.id === action.id
                 })
+            });
+        case REMOVE_CURRENT_VOTING:
+            return Object.assign({}, state, {
+                voting : null
             });
         default :
             return state;
