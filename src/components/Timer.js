@@ -42,7 +42,7 @@ class Timer extends React.Component {
         let seconds = this.state.seconds;
         let hour = Timer.formatNumber(seconds / 3600);
         let min = Timer.formatNumber((seconds - hour * 3600) / 60);
-        let sec = Timer.formatNumber(seconds - (hour * 3600 + min * 60))
+        let sec = Timer.formatNumber(seconds - (hour * 3600 + min * 60));
         return (
             <div>
                 До конца голосования осталось {hour}:{min}:{sec}

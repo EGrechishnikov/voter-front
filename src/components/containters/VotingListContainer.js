@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import VotingList from "../VotingList";
 import store from "../Store";
-import {UPDATE_VOTINGS} from "../reducers/VoteReducer";
+import {UPDATE_VOTINGS} from "../reducers/VotingReducer";
 import $ from 'jquery';
 
 class VotingListContainer extends React.Component {

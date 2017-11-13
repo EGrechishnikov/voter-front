@@ -18,7 +18,6 @@ class LoginContainer extends React.Component {
             contentType: "application/json",
             type: 'POST',
             success: (user) => {
-                console.log(user);
                 if (user !== null && user.id !== 0) {
                     store.dispatch({
                         type: USER_ADD,

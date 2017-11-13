@@ -6,12 +6,18 @@ import Variant from "./Variant";
 class Voting extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {alive : true};
+        this.state = {alive: true, voted: false};
         this.setVotingClosed = this.setVotingClosed.bind(this);
+        this.handleCreateVote = this.handleCreateVote.bind(this);
     }
 
     setVotingClosed() {
         this.setState({alive: false});
+    }
+
+    handleCreateVote(variant) {
+        this.setState({voted : true});
+        this.props.createVote(variant);
     }
 
     render() {
@@ -42,6 +48,16 @@ class Voting extends React.Component {
                                              name={variant.name}
                                              description={variant.description}/>);
                         })
+                    }
+                    {
+                        !this.state.alive ?
+                            <p>Закрыто</p> :
+                            this.state.voted ?
+                                <p>Проголосовано.</p> :
+                                <div>
+                                    <button onClick={this.handleCreateVote.bind(this, voting.variants[0])}>Вариант1</button>
+                                    <button onClick={this.handleCreateVote.bind(this, voting.variants[1])}>Вариант2</button>
+                                </div>
                     }
                 </div>
 

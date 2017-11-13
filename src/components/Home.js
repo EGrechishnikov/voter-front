@@ -8,8 +8,7 @@ import VotingContainer from "./containters/VotingContainer";
 
 
 export default class Home extends React.Component {
-    doLogout() {
-        console.log('LogOut');
+    static doLogout() {
         store.dispatch({
             type: USER_REMOVE
         });
@@ -18,7 +17,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.doLogout}>Выйти</button>
+                <button onClick={Home.doLogout}>Выйти</button>
                 <Switch>
                     <Route exact path="/" component={VotingListContainer}/>
                     <Route path="/create" component={CreateVotingContainer}/>

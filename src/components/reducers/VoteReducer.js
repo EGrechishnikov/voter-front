@@ -1,30 +1,15 @@
-export const UPDATE_VOTINGS = 'UPDATE_VOTINGS';
-export const GET_VOTING = 'GET_VOTING';
-export const REMOVE_CURRENT_VOTING = 'REMOVE_CURRENT_VOTING';
+export const ADD_VOTE = 'ADD_VOTE';
 
-const initialVoteState = {
-    votings: [],
-    voting: null
+const initialState = {
+    votes : []
 };
 
-const voteReducer = function (state = initialVoteState, action) {
-    switch (action.type) {
-        case UPDATE_VOTINGS :
-            return Object.assign({}, state, {
-                votings: action.votings.sort((voting1, voting2) => {
-                    return voting1.closingDate < voting2.closingDate;
-                })
-            });
-        case GET_VOTING :
-            return Object.assign({}, state, {
-                voting : state.votings.filter((voting) => {
-                    return voting.id === action.id
-                })
-            });
-        case REMOVE_CURRENT_VOTING:
-            return Object.assign({}, state, {
-                voting : null
-            });
+const voteReducer = (state = initialState, action) => {
+    switch(action.type) {
+        case ADD_VOTE :
+            let updatedVotes = state.votes;
+            updatedVotes.push(action.vote);
+            return Object.assign({}, state, {votes : updatedVotes});
         default :
             return state;
     }
