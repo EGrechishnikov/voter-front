@@ -1,15 +1,23 @@
-export const ADD_VOTE = 'ADD_VOTE';
+export const LOAD_MY_VOTES = 'LOAD_MY_VOTES';
+export const ADD_MY_VOTE = 'ADD_MY_VOTE';
+export const CLEAR_MY_VOTES = 'CLEAR_MY_VOTES';
 
 const initialState = {
-    votes : []
+    myVotes : null
 };
 
 const voteReducer = (state = initialState, action) => {
     switch(action.type) {
-        case ADD_VOTE :
-            let updatedVotes = state.votes;
+        case ADD_MY_VOTE :
+            let updatedVotes = state.myVotes;
             updatedVotes.push(action.vote);
-            return Object.assign({}, state, {votes : updatedVotes});
+            return Object.assign({}, state, {myVotes : updatedVotes});
+        case LOAD_MY_VOTES :
+            return Object.assign({}, state, {myVotes : action.myVotes});
+        case CLEAR_MY_VOTES :
+            let currentState = Object.assign({}, state);
+            delete currentState.myVotes;
+            return currentState;
         default :
             return state;
     }

@@ -11,12 +11,18 @@ class Voting extends React.Component {
         this.handleCreateVote = this.handleCreateVote.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.chosenVariantId !== null) {
+            this.setState({voted: true});
+        }
+    }
+
     setVotingClosed() {
         this.setState({alive: false});
     }
 
     handleCreateVote(variant) {
-        this.setState({voted : true});
+        this.setState({voted: true});
         this.props.createVote(variant);
     }
 
@@ -46,17 +52,20 @@ class Voting extends React.Component {
                         voting.variants.map((variant) => {
                             return (<Variant key={variant.id}
                                              name={variant.name}
+                                             chosen={variant.id === this.props.chosenVariantId}
                                              description={variant.description}/>);
                         })
                     }
                     {
-                        !this.state.alive ?
-                            <p>Закрыто</p> :
-                            this.state.voted ?
-                                <p>Проголосовано.</p> :
+                        this.state.voted ?
+                            <p>Проголосовано.</p> :
+                            !this.state.alive ?
+                                <p>Закрыто</p> :
                                 <div>
-                                    <button onClick={this.handleCreateVote.bind(this, voting.variants[0])}>Вариант1</button>
-                                    <button onClick={this.handleCreateVote.bind(this, voting.variants[1])}>Вариант2</button>
+                                    <button onClick={this.handleCreateVote.bind(this, voting.variants[0])}>Вариант1
+                                    </button>
+                                    <button onClick={this.handleCreateVote.bind(this, voting.variants[1])}>Вариант2
+                                    </button>
                                 </div>
                     }
                 </div>
