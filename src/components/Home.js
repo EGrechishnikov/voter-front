@@ -6,7 +6,7 @@ import store from './Store';
 import VotingListContainer from "./containters/VotingListContainer";
 import VotingContainer from "./containters/VotingContainer";
 import {CLEAR_MY_VOTES} from "./reducers/VoteReducer";
-import Result from "./Result";
+import ResultContainer from "./containters/ResultContainer";
 
 
 export default class Home extends React.Component {
@@ -27,7 +27,7 @@ export default class Home extends React.Component {
                     <Route exact path="/" component={VotingListContainer}/>
                     <Route path="/create" component={CreateVotingContainer}/>
                     <Route exact path="/voting/:id" component={VotingContainer}/>
-                    <Route path="/voting/:id/result" component={Result}/>
+                    <Route path="/voting/:id/result" component={ResultContainer}/>
                 </Switch>
             </div>
         );

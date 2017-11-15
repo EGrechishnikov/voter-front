@@ -5,8 +5,22 @@ class Result extends React.Component {
     render() {
         return (
             <div>
-                <Link to={`/voting/${this.props.match.params.id}`}>Назад</Link>
+                <Link to={`/voting/${this.props.votingId}`}>Назад</Link>
                 <h1>Результат</h1>
+                {
+                    this.props.result !== null ?
+                        this.props.result.map((variant) => {
+                            return <div key={variant.variantId}>
+                                <h2>
+                                    {variant.variantId}
+                                </h2>
+                                <h3>
+                                    {variant.count}
+                                </h3>
+                            </div>
+                        }) :
+                        null
+                }
             </div>
         );
     }
