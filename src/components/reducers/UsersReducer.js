@@ -6,7 +6,7 @@ const initialUserState = {
     user: null
 };
 
-const userReducer = function (state = initialUserState, action) {
+const userReducer = (state = initialUserState, action) => {
     switch (action.type) {
         case USER_ADD :
             localStorage.setItem('user', JSON.stringify(action.user));

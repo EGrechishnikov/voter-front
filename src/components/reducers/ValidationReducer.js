@@ -5,7 +5,7 @@ const initialUserState = {
     validationMessage: ''
 };
 
-const ValidationReducer = function (state = initialUserState, action) {
+const ValidationReducer = (state = initialUserState, action) => {
     switch (action.type) {
         case ENTRANCE_VALIDATION :
             return Object.assign({}, state, {validationMessage: action.validationMessage});

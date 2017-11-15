@@ -12,7 +12,7 @@ class Voting extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.chosenVariantId !== null) {
+        if (nextProps.chosenVariantId !== null) {
             this.setState({voted: true});
         }
     }
@@ -68,8 +68,8 @@ class Voting extends React.Component {
                                     </button>
                                 </div>
                     }
+                    <Link to={`/voting/${this.props.voting.id}/result`}>Результат</Link>
                 </div>
-
             </div>
         );
     }
