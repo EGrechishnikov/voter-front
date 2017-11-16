@@ -25,6 +25,14 @@ class VotingContainer extends React.Component {
         })
     }
 
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.voting);
+        let voting = nextProps.voting;
+        if(voting !== null && voting.imageLink !== null) {
+            console.log(voting.imageLink);
+        }
+    }
+
     createVote(variant) {
         let vote = {
             date: new Date(),

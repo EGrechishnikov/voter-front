@@ -9,13 +9,15 @@ class CreateVoteContainer extends React.Component {
         this.createVote = this.createVote.bind(this);
     }
 
-    createVote(vote) {
-        console.log(JSON.stringify(vote));
+    createVote(data) {
         $.ajax({
             url: 'http://localhost:8080/voter/voting/add',
-            data: JSON.stringify(vote),
-            contentType: "application/json",
+            enctype: 'multipart/form-data',
+            data: data,
             type: 'POST',
+            processData: false,
+            contentType: false,
+            cache: false,
             success: () => {
                 this.props.history.push('/');
             },

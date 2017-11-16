@@ -11,24 +11,39 @@ class CreateVoting extends React.Component {
         this.addVariant = this.addVariant.bind(this);
         this.showCreateVariant = this.showCreateVariant.bind(this);
         this.hideCreateVariant = this.hideCreateVariant.bind(this);
+        this.validation = this.validation.bind(this);
     }
 
-    createVoting() {
+    validation() {
         let validationMessage = '';
         if (this.name.value.length <= 0) {
             validationMessage = 'Введите название';
         } else if (this.state.variants.length < 2) {
             validationMessage = 'Меньше 2 вариантов';
+        } else if (this.state.variants.length > 5) {
+            validationMessage = 'Вариантов не может быть больше 5'
         }
         this.setState({validationMessage: validationMessage});
-        if (validationMessage === '') {
-            this.props.createVoting({
+    }
+
+    createVoting() {
+        this.validation();
+        if (this.state.validationMessage === '') {
+            let voting = {
                 name: this.name.value,
                 description: this.description.value,
                 creator: JSON.parse(localStorage.user),
                 variants: this.state.variants,
                 openDate: new Date()
-            });
+            };
+            let data = new FormData();
+            let file = this.imageInput.files[0];
+            console.log(voting);
+            data.append('voting', JSON.stringify(voting));
+            data.append('file', file);
+            data.append('fileName', file.name);
+            console.log(data.get('voting'));
+            this.props.createVoting(data);
         }
     }
 
@@ -58,7 +73,7 @@ class CreateVoting extends React.Component {
                 this.description = input
             }} type="text"/>
                 <label>Изображение</label><input ref={(input) => {
-                this.image = input
+                this.imageInput = input
             }} type="file"/>
                 <h2>Варианты</h2>
                 {
