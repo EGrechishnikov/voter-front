@@ -68,6 +68,10 @@ class Voting extends React.Component {
                                     </button>
                                 </div>
                     }
+                    {
+                        this.props.voting.imageLink !== null ?
+                            <img src={this.props.voting.imageLink} alt="Голосование"/> : null
+                    }
                     <Link to={`/voting/${this.props.voting.id}/result`}>Результат</Link>
                 </div>
             </div>
