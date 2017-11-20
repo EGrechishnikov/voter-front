@@ -11,14 +11,6 @@ class VotingContainer extends React.Component {
         this.createVote = this.createVote.bind(this);
     }
 
-    // componentWillMount() {
-    //     console.log('mount');
-    //     store.dispatch({
-    //         type: GET_VOTING,
-    //         id: Number(this.props.match.params.id)
-    //     });
-    // }
-
     createVote(variant) {
         let vote = {
             date: new Date(),
