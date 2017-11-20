@@ -7,19 +7,16 @@ import $ from 'jquery';
 
 class VotingListContainer extends React.Component {
     componentWillMount() {
-        console.log('will mount');
         this.updateVotingList();
     }
 
     updateVotingList() {
-        console.log('request');
         let page = 1;
         $.ajax({
             url : `http://localhost:8080/voter/voting/all/${page}`,
             type: 'GET',
             contentType: "application/json",
             success : (list) => {
-                console.log('update store');
                 store.dispatch({
                     type : UPDATE_VOTINGS,
                     votings : list

@@ -33,12 +33,10 @@ class Voting extends React.Component {
     }
 
     render() {
-        if (this.props.voting === null) {
-            return (
-                <Link to="/"><h3>Назад</h3></Link>
-            );
-        }
         let voting = this.props.voting;
+        if(voting === null) {
+            return null;
+        }
         let openDate = new Date(voting.openDate).toLocaleString('ru');
         return (
             <div>
@@ -75,10 +73,10 @@ class Voting extends React.Component {
                                 </div>
                     }
                     {
-                        this.props.voting.imageLink !== null ?
-                            <img src={this.props.voting.imageLink} alt="Голосование"/> : null
+                        voting.imageLink !== null ?
+                            <img src={voting.imageLink} alt="Голосование"/> : null
                     }
-                    <Link to={`/voting/${this.props.voting.id}/result`}>Результат</Link>
+                    <Link to={`/voting/${voting.id}/result`}>Результат</Link>
                 </div>
             </div>
         );
