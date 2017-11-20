@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from "react-router-dom";
+import {Link, Route, Switch} from "react-router-dom";
 import CreateVotingContainer from "./containters/CreateVotingContainer";
 import {USER_REMOVE} from "./reducers/UsersReducer";
 import store from './Store';
@@ -23,8 +23,10 @@ export default class Home extends React.Component {
         return (
             <div>
                 <button onClick={Home.doLogout}>Выйти</button>
+                <Link to="/list">Голосовать</Link>
+                <Link to="/create">Создать</Link>
                 <Switch>
-                    <Route exact path="/" component={VotingListContainer}/>
+                    <Route path="/list" component={VotingListContainer}/>
                     <Route path="/create" component={CreateVotingContainer}/>
                     <Route exact path="/voting/:id" component={VotingContainer}/>
                     <Route path="/voting/:id/result" component={ResultContainer}/>
