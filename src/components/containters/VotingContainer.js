@@ -3,7 +3,6 @@ import Voting from "../Voting";
 import {connect} from "react-redux";
 import store from "../Store";
 import $ from 'jquery';
-import {GET_VOTING, REMOVE_CURRENT_VOTING} from "../reducers/VotingReducer";
 import {ADD_MY_VOTE} from "../reducers/VoteReducer";
 
 class VotingContainer extends React.Component {
@@ -12,26 +11,13 @@ class VotingContainer extends React.Component {
         this.createVote = this.createVote.bind(this);
     }
 
-    componentWillMount() {
-        store.dispatch({
-            type: GET_VOTING,
-            id: Number(this.props.match.params.id)
-        });
-    }
-
-    componentWillUnmount() {
-        store.dispatch({
-            type: REMOVE_CURRENT_VOTING
-        })
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps.voting);
-        let voting = nextProps.voting;
-        if(voting !== null && voting.imageLink !== null) {
-            console.log(voting.imageLink);
-        }
-    }
+    // componentWillMount() {
+    //     console.log('mount');
+    //     store.dispatch({
+    //         type: GET_VOTING,
+    //         id: Number(this.props.match.params.id)
+    //     });
+    // }
 
     createVote(variant) {
         let vote = {
@@ -69,14 +55,16 @@ class VotingContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (store) => {
-    let voting = store.votingState.voting === null || store.votingState.voting[0] === undefined ?
-        null :
-        store.votingState.voting[0];
+const mapStateToProps = (store, ownProps) => {
+    let votingId = Number(ownProps.match.params.id);
+    let voting = store.votingState.votings.filter((voting) => {
+        return voting.id === votingId
+    })[0];
+    voting = voting === undefined ? null : voting;
     let chosenVariantId = null;
     if (voting !== null) {
         let vote = store.voteState.myVotes.filter((vote) => {
-            return vote.votingId === voting.id;
+            return vote.votingId === votingId;
         })[0];
         chosenVariantId = vote !== undefined ? vote.variantId : null;
     }

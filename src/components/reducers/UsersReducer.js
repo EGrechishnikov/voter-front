@@ -13,9 +13,6 @@ const userReducer = (state = initialUserState, action) => {
             return Object.assign({}, state, {user: action.user});
         case USER_REMOVE :
             localStorage.removeItem('user');
-            // let newState = Object.assign({}, state);
-            // delete newState.user;
-            // return newState;
             return Object.assign({}, state, {user: null});
         default :
             return state;

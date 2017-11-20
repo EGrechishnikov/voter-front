@@ -11,6 +11,12 @@ class Voting extends React.Component {
         this.handleCreateVote = this.handleCreateVote.bind(this);
     }
 
+    componentWillMount() {
+        if(this.props.voting === null) {
+            this.props.history.push('/');
+        }
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.chosenVariantId !== null) {
             this.setState({voted: true});
