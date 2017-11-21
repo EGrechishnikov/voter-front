@@ -2,9 +2,20 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 class VotingList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {divClass: ''};
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({divClass: 'root-loaded'})
+        }, 100);
+    }
+
     render() {
         return(
-            <div>
+            <div className={`root ${this.state.divClass}`}>
                 <h1>Список голосований</h1>
                 <Link to="/create">Создать</Link>
                 {

@@ -1,7 +1,12 @@
 #home {
-    background-image: url("../images/back.jpg");
+    background-image: url("../images/blur.jpg");
     background-size: cover;
     min-height: 760px;
+    transition: background-image 1.5s ease-in-out;
+}
+
+.home-loaded {
+    background-image: url("../images/back.jpg") !important;
 }
 
 .button-wrapper {

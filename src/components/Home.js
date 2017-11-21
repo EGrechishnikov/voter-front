@@ -4,9 +4,20 @@ import '../style/css/home.css';
 
 
 export default class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {divClass: ''};
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({divClass: 'home-loaded'})
+        }, 100);
+    }
+
     render() {
         return (
-            <div id="home">
+            <div id="home" className={this.state.divClass}>
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-4 col-sm-offset-2 button-wrapper">

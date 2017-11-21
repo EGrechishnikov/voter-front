@@ -1,5 +1,12 @@
-body {
-    background-color: #fafafa;
+.root {
+    background-image: url("../images/back.jpg");
+    background-size: cover;
+    min-height: 760px;
+    transition: background-image 1.5s ease-in-out;
+}
+
+.root-loaded {
+    background-image: url("../images/blur.jpg") !important;
 }
 
 a, a:hover, a:focus {
