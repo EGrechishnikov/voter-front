@@ -1,3 +1,46 @@
-body {
-    background-image: none;
+.form-horizontal {
+    font-size: 22px;
+    line-height: 35px;
+}
+
+.btn-default {
+    font-size: 20px;
+    line-height: 35px;
+}
+
+.form-control {
+    height: 50px;
+    font-size: 30px;
+}
+
+.form {
+    margin-top: 14%;
+}
+
+#log-reg-buttons {
+    margin-top: 17%;
+    text-align: center;
+}
+
+#log-reg-buttons .btn {
+    margin-bottom: 20px;
+    padding: 5px 30px;
+}
+
+.active {
+    background-color: black;
+}
+
+.header-wrapper {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.header-wrapper h1 {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.center p {
+    color: #c50000;
 }

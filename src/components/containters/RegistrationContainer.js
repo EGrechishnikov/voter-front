@@ -11,6 +11,7 @@ class RegistrationContainer extends React.Component {
         super(props);
         this.doReg = this.doReg.bind(this);
         this.validation = this.validation.bind(this);
+        this.state = {validationMessage: ''};
     }
 
     validation(login, password) {
@@ -57,7 +58,7 @@ class RegistrationContainer extends React.Component {
             <Registration doReg={this.doReg}
                           user={this.props.user}
                           validationMessage={this.props.validationMessage}
-                          validation={this.validation}/>
+                          validation={this.props.validation}/>
         );
     }
 }

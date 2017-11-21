@@ -1,28 +1,11 @@
-body {
+#home {
     background-image: url("../images/back.jpg");
     background-size: cover;
-}
-
-a, a:hover, a:focus {
-    text-decoration: none;
-}
-
-.navbar {
-    background-color: rgba(34, 34, 34, 0.7);
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    opacity: 0;
-    transition-property: opacity;
-    transition-duration: 1s;
-}
-
-.navbar:hover {
-    opacity: 1;
+    min-height: 760px;
 }
 
 .button-wrapper {
-    margin-top: 42%;
+    margin-top: 48%;
 }
 
 .button,
@@ -41,37 +24,6 @@ a, a:hover, a:focus {
     border-color: #777777;
 }
 
-.navbar-brand {
-    font-size: 20px;
-    color: white !important;
-    font-weight: bold;
-}
-
-.navbar-brand:hover {
-    color: gray !important;
-}
-
 #button-wrapper {
     margin-top: 12px;
-}
-
-#login {
-    text-align: right;
-    font-size: 20px;
-    line-height: 20px;
-    color: white;
-    padding: 16px;
-}
-
-#logout-button {
-    padding: 7px 16px;
-    color: #636363;
-    font-size: 20px;
-    background-color: white;
-    border-radius: 5px;
-}
-
-#logout-button:hover {
-    color: #262626;
-    background-color: #cbcbcb;
 }

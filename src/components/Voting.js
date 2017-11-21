@@ -40,7 +40,6 @@ class Voting extends React.Component {
         let openDate = new Date(voting.openDate).toLocaleString('ru');
         return (
             <div>
-                <Link to="/">Назад</Link>
                 <div>
                     <h1>{voting.name}</h1>
                     <p>От {voting.creator.login}</p>
@@ -77,6 +76,7 @@ class Voting extends React.Component {
                             <img src={voting.imageLink} alt="Голосование"/> : null
                     }
                     <Link to={`/voting/${voting.id}/result`}>Результат</Link>
+                    <Link to="/list">Назад</Link>
                 </div>
             </div>
         );

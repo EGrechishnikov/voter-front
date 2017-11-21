@@ -1,0 +1,11 @@
+body {
+    background-color: #fafafa;
+}
+
+a, a:hover, a:focus {
+    text-decoration: none !important;
+}
+
+.center {
+    text-align: center;
+}

@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
 import App from '../App';
 import React from "react";
-import {USER_ADD} from "../reducers/UsersReducer";
+import {USER_ADD, USER_REMOVE} from "../reducers/UsersReducer";
 import $ from 'jquery';
 import store from '../Store';
-import {LOAD_MY_VOTES} from "../reducers/VoteReducer";
+import {CLEAR_MY_VOTES, LOAD_MY_VOTES} from "../reducers/VoteReducer";
 
 class AppContainer extends React.Component {
     constructor(props) {
@@ -23,6 +23,15 @@ class AppContainer extends React.Component {
             });
             this.loadMyVotes(user);
         }
+    }
+
+    static logout() {
+        store.dispatch({
+            type: USER_REMOVE
+        });
+        store.dispatch({
+            type: CLEAR_MY_VOTES
+        });
     }
 
     loadMyVotes(user) {
@@ -52,7 +61,7 @@ class AppContainer extends React.Component {
     }
 
     render() {
-        return <App user={this.props.user} valid={this.state.valid}/>
+        return <App user={this.props.user} valid={this.state.valid} logout={AppContainer.logout}/>
     }
 }
 

@@ -9,6 +9,21 @@ class LoginContainer extends React.Component {
     constructor(props) {
         super(props);
         this.doLogin = this.doLogin.bind(this);
+        this.validation = this.validation.bind(this);
+        this.state = {validationMessage: ''};
+    }
+
+    validation(login, password) {
+        if (login === '') {
+            this.setState({validationMessage: 'Введите логин'});
+            return false;
+        } else if (password === '') {
+            this.setState({validationMessage: 'Введите пароль'});
+            return false;
+        } else {
+            this.setState({validationMessage: ''});
+            return true;
+        }
     }
 
     doLogin(user) {
@@ -34,7 +49,10 @@ class LoginContainer extends React.Component {
 
     render() {
         return (
-            <Login doLogin={this.doLogin} user={this.props.user}/>
+            <Login doLogin={this.doLogin}
+                   user={this.props.user}
+                   validationMessage={this.state.validationMessage}
+                   validation={this.validation}/>
         );
     }
 }

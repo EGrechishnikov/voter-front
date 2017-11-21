@@ -64,7 +64,6 @@ class CreateVoting extends React.Component {
     render() {
         return (
             <div>
-                <Link to="/">Назад</Link>
                 <h1>Создать голосование</h1>
                 <label>Название</label><input ref={(input) => {
                 this.name = input
@@ -93,6 +92,7 @@ class CreateVoting extends React.Component {
                 }
                 <button onClick={this.createVoting}>Создать</button>
                 <h3>{this.state.validationMessage}</h3>
+                <Link to="/">Назад</Link>
             </div>
         );
     }

@@ -1,0 +1,47 @@
+.navbar {
+    background-color: rgba(34, 34, 34, 0.7);
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 1s;
+    border-bottom: 1px #222 solid;
+    border-radius: 0;
+}
+
+.navbar:hover {
+    opacity: 1;
+}
+
+#login {
+    text-align: right;
+    font-size: 20px;
+    line-height: 20px;
+    color: white;
+    padding: 16px;
+}
+
+#logout-button {
+    padding: 7px 16px;
+    color: #636363;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#logout-button:hover {
+    color: #262626;
+    background-color: #cbcbcb;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    color: white !important;
+    font-weight: bold;
+    padding: 17px 15px !important;
+}
+
+.navbar-brand:hover {
+    color: gray !important;
+}
