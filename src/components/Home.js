@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import '../style/css/home.css';
 
 
-export default class Home extends React.Component {
+class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {divClass: ''};
@@ -34,3 +34,5 @@ export default class Home extends React.Component {
         );
     }
 }
+
+export default Home;

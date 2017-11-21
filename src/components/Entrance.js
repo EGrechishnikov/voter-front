@@ -4,7 +4,7 @@ import LoginContainer from "./containters/LoginContainer";
 import RegistrationContainer from "./containters/RegistrationContainer";
 import '../style/css/entrance.css';
 
-export default class Entrance extends React.Component {
+class Entrance extends React.Component {
     constructor(props) {
         super(props);
         this.state = {divClass: ''};
@@ -28,3 +28,5 @@ export default class Entrance extends React.Component {
         );
     }
 }
+
+export default Entrance;

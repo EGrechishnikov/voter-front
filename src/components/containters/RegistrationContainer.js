@@ -1,10 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import store from '../Store';
 import $ from 'jquery';
-import Registration from '../Registration';
 import {USER_ADD} from '../reducers/UsersReducer';
-import {ENTRANCE_VALIDATION} from "../reducers/ValidationReducer";
+import UserForm from "../UserForm";
 
 class RegistrationContainer extends React.Component {
     constructor(props) {
@@ -41,10 +39,7 @@ class RegistrationContainer extends React.Component {
                     });
                     this.props.history.push('/');
                 } else {
-                    store.dispatch({
-                        type: ENTRANCE_VALIDATION,
-                        validationMessage: `Логин ${user.login} уже занят.`
-                    });
+                    this.setState({validationMessage: `Логин ${user.login} уже занят.`});
                 }
             },
             error: () => {
@@ -55,19 +50,12 @@ class RegistrationContainer extends React.Component {
 
     render() {
         return (
-            <Registration doReg={this.doReg}
-                          user={this.props.user}
-                          validationMessage={this.props.validationMessage}
-                          validation={this.props.validation}/>
+            <UserForm action={this.doReg}
+                      isLoginPage={false}
+                      validationMessage={this.state.validationMessage}
+                      validation={this.validation}/>
         );
     }
 }
 
-const mapStateToProps = (store) => {
-    return {
-        user: store.userState.user,
-        validationMessage: store.validState.validationMessage
-    };
-};
-
-export default connect(mapStateToProps)(RegistrationContainer);
+export default RegistrationContainer;

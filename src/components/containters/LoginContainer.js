@@ -1,9 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import store from '../Store';
 import $ from 'jquery';
-import Login from '../Login';
 import {USER_ADD} from '../reducers/UsersReducer';
+import UserForm from "../UserForm";
 
 class LoginContainer extends React.Component {
     constructor(props) {
@@ -33,11 +32,14 @@ class LoginContainer extends React.Component {
             contentType: "application/json",
             type: 'POST',
             success: (user) => {
-                if (user !== null && user.id !== 0) {
+                if (user !== null && user.id > 0 && user.login !== '') {
+                    console.log('yes');
                     store.dispatch({
                         type: USER_ADD,
                         user: user
                     });
+                } else {
+                    this.setState({validationMessage: `Неверный логин или пароль.`});
                 }
                 this.props.history.push('/');
             },
@@ -49,18 +51,12 @@ class LoginContainer extends React.Component {
 
     render() {
         return (
-            <Login doLogin={this.doLogin}
-                   user={this.props.user}
-                   validationMessage={this.state.validationMessage}
-                   validation={this.validation}/>
+            <UserForm action={this.doLogin}
+                      isLoginPage={true}
+                      validationMessage={this.state.validationMessage}
+                      validation={this.validation}/>
         );
     }
 }
 
-const mapStateToProps = (store) => {
-    return {
-        user: store.userState.user
-    };
-};
-
-export default connect(mapStateToProps)(LoginContainer);
+export default LoginContainer;

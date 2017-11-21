@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-export default class Login extends React.Component {
+class UserForm extends React.Component {
     constructor(props) {
         super(props);
         this.submit = this.submit.bind(this);
@@ -15,7 +15,7 @@ export default class Login extends React.Component {
                 login: login,
                 password: password
             };
-            this.props.doLogin(user);
+            this.props.action(user);
         }
         event.preventDefault();
     }
@@ -24,15 +24,23 @@ export default class Login extends React.Component {
         return (
             <div className="container">
                 <div className="row header-wrapper">
-                    <h1>Вход</h1>
+                    <h1>{this.props.isLoginPage ? 'Вход' : 'Регистрация'}</h1>
                 </div>
                 <div className="row">
                     <div id="log-reg-buttons" className="col-sm-3">
                         <div className="mb-40">
-                            <Link disabled className="button disabled-button" to="/login">Вход</Link>
+                            {
+                                this.props.isLoginPage ?
+                                    <Link disabled className="button disabled-button" to="/login">Вход</Link> :
+                                    <Link className="button" to="/login">Вход</Link>
+                            }
                         </div>
                         <div>
-                            <Link className="button" to="/reg">Регистрация</Link>
+                            {
+                                this.props.isLoginPage ?
+                                    <Link className="button" to="/reg">Регистрация</Link> :
+                                    <Link disabled className="button disabled-button" to="/reg">Регистрация</Link>
+                            }
                         </div>
                     </div>
                     <div className="col-sm-6 col-sm-offset-2 form">
@@ -64,3 +72,5 @@ export default class Login extends React.Component {
         );
     }
 }
+
+export default UserForm;
