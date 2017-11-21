@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style/css/bootstrap.min.css';
 import '../style/css/common.css';
+import '../style/css/standart.css';
 import Entrance from "./Entrance";
 import {Route, Switch} from "react-router-dom";
 import VotingListContainer from "./containters/VotingListContainer";

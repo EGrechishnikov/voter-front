@@ -28,11 +28,11 @@ export default class Login extends React.Component {
                 </div>
                 <div className="row">
                     <div id="log-reg-buttons" className="col-sm-3">
-                        <div>
-                            <Link disabled className="btn btn-default" to="/login">Вход</Link>
+                        <div className="mb-40">
+                            <Link disabled className="button disabled-button" to="/login">Вход</Link>
                         </div>
                         <div>
-                            <Link className="btn btn-default" to="/reg">Регистрация</Link>
+                            <Link className="button" to="/reg">Регистрация</Link>
                         </div>
                     </div>
                     <div className="col-sm-6 col-sm-offset-2 form">
@@ -53,9 +53,9 @@ export default class Login extends React.Component {
                                     }} type="password" className="form-control"/>
                                 </div>
                             </div>
-                            <div className="center">
+                            <div className="center mt-30">
                                 <p>{this.props.validationMessage}</p>
-                                <button className="btn btn-default">Отправить</button>
+                                <button className="button">Отправить</button>
                             </div>
                         </form>
                     </div>

@@ -1,10 +1,9 @@
-.form-horizontal {
-    font-size: 22px;
-    line-height: 35px;
+h1 {
+    color: #e3e3e3;
 }
 
-.btn-default {
-    font-size: 20px;
+.form-horizontal {
+    font-size: 22px;
     line-height: 35px;
 }
 
@@ -14,11 +13,12 @@
 }
 
 .form {
-    margin-top: 14%;
+    margin-top: 18vh;
+    color: #e3e3e3;
 }
 
 #log-reg-buttons {
-    margin-top: 17%;
+    margin-top: 25vh;
     text-align: center;
 }
 
@@ -33,7 +33,7 @@
 
 .header-wrapper {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 18vh;
 }
 
 .header-wrapper h1 {

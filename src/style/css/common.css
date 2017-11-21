@@ -1,7 +1,7 @@
 .root {
     background-image: url("../images/back.jpg");
     background-size: cover;
-    min-height: 760px;
+    min-height: 100vh;
     transition: background-image 1.5s ease-in-out;
 }
 
@@ -13,6 +13,26 @@ a, a:hover, a:focus {
     text-decoration: none !important;
 }
 
-.center {
-    text-align: center;
+/*Buttons*/
+
+.button,
+.button:focus {
+    padding: 10px 30px;
+    font-size: 26px;
+    color: #e3e3e3;
+    font-weight: bold;
+    border: 2px #e3e3e3 solid;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.button:hover {
+    color: #777777;
+    border-color: #777777;
+}
+
+.disabled-button, .disabled-button:hover {
+    color: #414141;
+    border-color: #414141;
+    cursor: default;
 }
