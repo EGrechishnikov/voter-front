@@ -1,7 +1,7 @@
 {
   "name": "voter",
   "version": "1.0.0",
-  "license": "It's MINE!",
+  "license": "ISC",
   "description": "Voting app",
   "dependencies": {
     "jquery": "3.2.1",

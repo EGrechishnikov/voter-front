@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, Route, Switch} from 'react-router-dom';
 import LoginContainer from "./containters/LoginContainer";
 import RegistrationContainer from "./containters/RegistrationContainer";
+import '../style/css/entrance.css';
 
 export default class Entrance extends React.Component {
     render() {
