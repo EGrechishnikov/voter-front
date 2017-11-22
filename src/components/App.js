@@ -10,6 +10,9 @@ import VotingContainer from "./containters/VotingContainer";
 import ResultContainer from "./containters/ResultContainer";
 import Navigation from "./Navigation";
 import Home from "./Home";
+import {whyDidYouUpdate} from "why-did-you-update";
+
+whyDidYouUpdate(React);
 
 class App extends React.Component {
     render() {

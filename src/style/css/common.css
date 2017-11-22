@@ -31,7 +31,7 @@ a, a:hover, a:focus {
     border-color: #777777;
 }
 
-.disabled-button, .disabled-button:hover {
+.disabled-button, .disabled-button:hover, .disabled-button:focus {
     color: #414141;
     border-color: #414141;
     cursor: default;

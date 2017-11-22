@@ -12,6 +12,10 @@ class RegistrationContainer extends React.Component {
         this.state = {validationMessage: ''};
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextState.validationMessage !== this.state.validationMessage;
+    }
+
     validation(login, password) {
         if (login === '') {
             this.setState({validationMessage: 'Введите логин'});

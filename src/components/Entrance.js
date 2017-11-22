@@ -16,6 +16,10 @@ class Entrance extends React.Component {
         }, 100);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextState.divClass !== this.state.divClass;
+    }
+
     render() {
         return (
             <div className={`root ${this.state.divClass}`}>

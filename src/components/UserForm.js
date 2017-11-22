@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-class UserForm extends React.Component {
+class UserForm extends React.PureComponent {
     constructor(props) {
         super(props);
         this.submit = this.submit.bind(this);

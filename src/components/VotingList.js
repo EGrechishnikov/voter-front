@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import '../style/css/voting-list.css';
 
-class VotingList extends React.Component {
+class VotingList extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {divClass: ''};

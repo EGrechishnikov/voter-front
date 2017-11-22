@@ -12,6 +12,10 @@ class LoginContainer extends React.Component {
         this.state = {validationMessage: ''};
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextState.validationMessage !== this.state.validationMessage;
+    }
+
     validation(login, password) {
         if (login === '') {
             this.setState({validationMessage: 'Введите логин'});
@@ -33,7 +37,6 @@ class LoginContainer extends React.Component {
             type: 'POST',
             success: (user) => {
                 if (user !== null && user.id > 0 && user.login !== '') {
-                    console.log('yes');
                     store.dispatch({
                         type: USER_ADD,
                         user: user

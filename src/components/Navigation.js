@@ -10,6 +10,10 @@ class Navigation extends React.Component {
         this.showHideNav = this.showHideNav.bind(this);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.user !== nextProps.user || this.state.navShowed !== nextState.navShowed;
+    }
+
     showHideNav() {
         let isShowed = this.state.navShowed;
         if (!isShowed) {
