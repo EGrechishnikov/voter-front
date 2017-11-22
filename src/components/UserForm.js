@@ -27,15 +27,15 @@ class UserForm extends React.Component {
                     <h1>{this.props.isLoginPage ? 'Вход' : 'Регистрация'}</h1>
                 </div>
                 <div className="row">
-                    <div id="log-reg-buttons" className="col-sm-3">
-                        <div className="mb-40">
+                    <div id="log-reg-buttons" className="col-xs-8 col-xs-offset-2 col-sm-3 col-sm-offset-0">
+                        <div className="mb-40 col-xs-4  col-sm-6 col-sm-offset-3">
                             {
                                 this.props.isLoginPage ?
                                     <Link disabled className="button disabled-button" to="/login">Вход</Link> :
                                     <Link className="button" to="/login">Вход</Link>
                             }
                         </div>
-                        <div>
+                        <div className="col-xs-6 col-xs-offset-2 col-sm-6 col-sm-offset-1">
                             {
                                 this.props.isLoginPage ?
                                     <Link className="button" to="/reg">Регистрация</Link> :
@@ -43,28 +43,29 @@ class UserForm extends React.Component {
                             }
                         </div>
                     </div>
-                    <div className="col-sm-6 col-sm-offset-2 form">
+                    <div className=" col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-2 form">
                         <form onSubmit={this.submit} className="form-horizontal">
                             <div className="form-group">
-                                <label className="col-sm-2 control-label">Логин</label>
-                                <div className="col-sm-10">
+                                <label className="col-xs-12 center col-sm-2 col-sm-offset-0 control-label">Логин</label>
+                                <div className="col-sm-9 col-sm-offset-1">
                                     <input ref={(input) => {
                                         this.login = input;
                                     }} type="text" className="form-control"/>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label className="col-sm-2 control-label">Пароль</label>
-                                <div className="col-sm-10">
+                                <label className="col-xs-12 center col-sm-2 col-sm-offset-0 control-label">Пароль</label>
+                                <div className="col-sm-9 col-sm-offset-1">
                                     <input ref={(input) => {
                                         this.password = input;
                                     }} type="password" className="form-control"/>
+                                    <div className="center mt-30">
+                                        <p>{this.props.validationMessage}</p>
+                                        <button className="button">Отправить</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="center mt-30">
-                                <p>{this.props.validationMessage}</p>
-                                <button className="button">Отправить</button>
-                            </div>
+
                         </form>
                     </div>
                 </div>

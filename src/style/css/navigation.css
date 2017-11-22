@@ -3,15 +3,8 @@
     position: fixed;
     z-index: 1;
     width: 100%;
-    opacity: 0;
-    transition-property: opacity;
-    transition-duration: 1s;
     border-bottom: 1px #222 solid;
     border-radius: 0;
-}
-
-.navbar:hover {
-    opacity: 1;
 }
 
 #login {
@@ -44,4 +37,24 @@
 
 .navbar-brand:hover {
     color: gray !important;
+}
+
+#logout-button-container {
+    line-height: 50px;
+}
+
+@media screen and (max-width: 500px) {
+    .not-for-mobile {
+        display: none;
+    }
+
+    #logout-button-container {
+        margin-left: 50%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #logout-button-container {
+        margin-left: 45%;
+    }
 }

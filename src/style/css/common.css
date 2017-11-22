@@ -36,3 +36,23 @@ a, a:hover, a:focus {
     border-color: #414141;
     cursor: default;
 }
+
+@media screen and (max-width: 768px) {
+    .button {
+        font-size: 18px;
+    }
+
+    button.button {
+        padding: 5px 25px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+    .button {
+        font-size: 21px;
+    }
+
+    button.button {
+        padding: 5px 25px;
+    }
+}

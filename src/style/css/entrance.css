@@ -1,5 +1,6 @@
 h1 {
-    color: #e3e3e3;
+    color: #ebebeb;
+    text-shadow: 2px 2px 15px #222;
 }
 
 .form-horizontal {
@@ -14,7 +15,7 @@ h1 {
 
 .form {
     margin-top: 18vh;
-    color: #e3e3e3;
+    color: #ebebeb;
 }
 
 #log-reg-buttons {
@@ -43,4 +44,47 @@ h1 {
 
 .center p {
     color: #c50000;
+}
+
+@media screen and (max-width: 768px) {
+    .header-wrapper {
+        margin-top: 7vh;
+    }
+
+    #log-reg-buttons {
+        margin-top: 10vh;
+    }
+
+    .form {
+        margin-top: 9vh;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .button, .button:focus {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    button.button {
+        padding: 3px 15px;
+    }
+
+    .form-control {
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    #log-reg-buttons div {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .container {
+        width: 100%;
+    }
 }

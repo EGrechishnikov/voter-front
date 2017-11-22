@@ -20,10 +20,10 @@ class Home extends React.Component {
             <div id="home" className={this.state.divClass}>
                 <div className="container">
                     <div className="row">
-                        <div className="col-sm-4 col-sm-offset-2 button-wrapper">
+                        <div className="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-2 button-wrapper">
                             <Link className="button" to="/create">Создать</Link>
                         </div>
-                        <div className="col-sm-4 col-sm-offset-1 button-wrapper">
+                        <div className="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-1 button-wrapper">
                             <Link className="button" to="/list">Голосовать</Link>
                         </div>
                     </div>
