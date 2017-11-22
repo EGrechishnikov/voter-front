@@ -12,6 +12,11 @@ class CreateVoting extends React.Component {
         this.showCreateVariant = this.showCreateVariant.bind(this);
         this.hideCreateVariant = this.hideCreateVariant.bind(this);
         this.validation = this.validation.bind(this);
+        this.returnBack = this.returnBack.bind(this);
+    }
+
+    returnBack() {
+        this.props.history.goBack();
     }
 
     validation() {
@@ -92,7 +97,7 @@ class CreateVoting extends React.Component {
                 }
                 <button onClick={this.createVoting}>Создать</button>
                 <h3>{this.state.validationMessage}</h3>
-                <Link to="/">Назад</Link>
+                <Link to="/" onClick={this.returnBack}>Назад</Link>
             </div>
         );
     }

@@ -5,6 +5,8 @@
     width: 100%;
     border-bottom: 1px #222 solid;
     border-radius: 0;
+    height: 50px;
+    margin-top: -50px;
 }
 
 #login {
@@ -41,6 +43,23 @@
 
 #logout-button-container {
     line-height: 50px;
+}
+
+.dropdown-button {
+    width: 35px;
+    height: 35px;
+    margin-top: 33px;
+    margin-left: 48%;
+    background-image: url("../images/arrow.svg");
+    background-size: cover;
+}
+
+#down-button {
+    transform: rotate(90deg);
+}
+
+#up-button {
+    transform: rotate(270deg);
 }
 
 @media screen and (max-width: 500px) {

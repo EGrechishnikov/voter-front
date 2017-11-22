@@ -1,8 +1,29 @@
 import React from 'react';
 import '../style/css/navigation.css';
 import {Link} from "react-router-dom";
+import $ from 'jquery';
 
 class Navigation extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {navShowed: false};
+        this.showHideNav = this.showHideNav.bind(this);
+    }
+
+    showHideNav() {
+        let isShowed = this.state.navShowed;
+        if (!isShowed) {
+            $('.navbar').animate({
+                marginTop: 0
+            }, 500);
+        } else {
+            $('.navbar').animate({
+                marginTop: "-50px"
+            }, 500);
+        }
+        this.setState({navShowed: !isShowed});
+    }
+
     render() {
         let login = this.props.user !== null ? this.props.user.login : '';
         return (
@@ -15,8 +36,10 @@ class Navigation extends React.Component {
                     <div id="logout-button-container" className="col-xs-2">
                         <Link id="logout-button" to="/" onClick={this.props.logout}>Выйти</Link>
                     </div>
+                    <div id={this.state.navShowed ? "up-button" : "down-button"} className="dropdown-button" onClick={this.showHideNav}/>
                 </div>
             </nav>
+
         );
     }
 }

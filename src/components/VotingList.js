@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import '../style/css/voting-list.css';
 
 class VotingList extends React.Component {
     constructor(props) {
@@ -14,18 +15,34 @@ class VotingList extends React.Component {
     }
 
     render() {
-        return(
+        return (
             <div className={`root ${this.state.divClass}`}>
-                <h1>Список голосований</h1>
-                <Link to="/create">Создать</Link>
-                {
-                    this.props.votings.map((voting) => {
-                        return <div key={voting.id}>
-                            <Link to={'/voting/' + voting.id}><h2>{voting.name}</h2></Link>
-                            <h3>{voting.description}</h3>
+                <div className="container">
+                    <div className="row">
+                        <div id="header" className="col-sm-12">
+                            <div className="col-sm-5 col-sm-offset-2">
+                                <h1>Список голосований</h1>
+                            </div>
+                            <div id="create-button-wrapper" className="col-sm-1 col-sm-offset-2">
+                                <Link to="/create">
+                                    <div id="create-button"/>
+                                </Link>
+                            </div>
                         </div>
-                    })
-                }
+                        <div id="list" className="col-sm-12">
+                            {
+                                this.props.votings.map((voting) => {
+                                    return <div key={voting.id} className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 voting">
+                                        <Link to={'/voting/' + voting.id}>
+                                            <h2 className="name">{voting.name}</h2>
+                                            <p className="description">{voting.description}</p>
+                                        </Link>
+                                    </div>
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

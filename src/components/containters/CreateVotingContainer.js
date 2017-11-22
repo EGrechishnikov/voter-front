@@ -29,7 +29,9 @@ class CreateVoteContainer extends React.Component {
 
     render() {
         return(
-            <CreateVoting createVoting={this.createVote} votings={this.props.votings}/>
+            <CreateVoting createVoting={this.createVote}
+                          votings={this.props.votings}
+                          history={this.props.history}/>
         );
     }
 }
