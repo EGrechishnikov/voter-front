@@ -13,14 +13,23 @@
     margin-top: 77vh;
 }
 
+#logo-wrapper {
+    margin-top: 12vh;
+}
+
 @media screen and (max-width: 768px) {
     .button-wrapper {
         text-align: center;
-        margin-top: 60vh;
+        margin-top: 28vh;
+    }
+
+    .button {
+        font-size: 22px;
+        padding: 13px 26px;
     }
 
     .button-wrapper:last-of-type {
-        margin-top: 10vh;
+        margin-top: 11vh;
     }
 
     .home-loaded {
