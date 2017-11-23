@@ -9,10 +9,10 @@ import CreateVotingContainer from "./containters/CreateVotingContainer";
 import VotingContainer from "./containters/VotingContainer";
 import ResultContainer from "./containters/ResultContainer";
 import Navigation from "./Navigation";
-import Home from "./Home";
-import {whyDidYouUpdate} from "why-did-you-update";
+import HomeContainer from "./containters/HomeContainer";
+// import {whyDidYouUpdate} from "why-did-you-update";
 
-whyDidYouUpdate(React);
+// whyDidYouUpdate(React);
 
 class App extends React.Component {
     render() {
@@ -27,7 +27,7 @@ class App extends React.Component {
                                 <Route path="/create" component={CreateVotingContainer}/>
                                 <Route exact path="/voting/:id" component={VotingContainer}/>
                                 <Route path="/voting/:id/result" component={ResultContainer}/>
-                                <Route exact path="/" component={Home}/>
+                                <Route exact path="/" component={HomeContainer}/>
                             </Switch>
                         </div> :
                         <Entrance/>

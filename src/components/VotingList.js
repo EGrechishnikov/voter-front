@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import '../style/css/voting-list.css';
+import PaginationContainer from "./containters/PaginationContainer";
 
 class VotingList extends React.PureComponent {
     constructor(props) {
@@ -34,14 +35,16 @@ class VotingList extends React.PureComponent {
                                 this.props.votings.map((voting) => {
                                     return <div key={voting.id} className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 voting">
                                         <Link to={'/voting/' + voting.id}>
-                                            <h2 className="name">{voting.name}</h2>
-                                            <p className="description">{voting.description}</p>
+                                            <h2 className="name center">{voting.name}</h2>
+                                            <p className="creator center">{voting.creator.login}</p>
+                                            <p className="description center">{voting.description}</p>
                                         </Link>
                                     </div>
                                 })
                             }
                         </div>
                     </div>
+                    <PaginationContainer onChangePage={this.props.onChangePage}/>
                 </div>
             </div>
         );

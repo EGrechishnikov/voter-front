@@ -7,24 +7,51 @@ h1 {
     color: #fafafa;
     font-weight: bold;
     padding: 3px;
+    font-size: 33px;
 }
 
 .description {
     color: #fafafa;
-    font-style: italic;
     font-size: 18px;
 }
 
+.creator {
+    color: #bfbfbf;
+    font-style: italic;
+}
+
 .voting {
-    background-color: #262626;
+    background-color: #2e2e2e;
     margin-bottom: 30px;
-    border: 2px solid black;
-    border-radius: 3px;
+    border: 1px solid #0d0d0d;
+    border-radius: 4px;
     transition: 0.2s;
 }
 
 .voting:hover {
     box-shadow: 3px 3px 15px black;
+}
+
+.pagination-button {
+    background-color: #222 !important;
+    color: #fafafa !important;
+}
+
+.pagination-button:hover {
+    background-color: #414141 !important;
+    color: #bfbfbf !important;
+}
+
+.disabled-pagination-button,
+.disabled-pagination-button:hover,
+.disabled-pagination-button:focus {
+    background-color: #414141 !important;
+    color: #bfbfbf !important;
+    cursor: default;
+}
+
+.pagination>li>a, .pagination>li>span {
+    border-color: black !important;
 }
 
 #create-button {
