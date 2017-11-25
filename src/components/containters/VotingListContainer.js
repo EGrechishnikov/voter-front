@@ -2,16 +2,21 @@ import React from 'react';
 import {connect} from "react-redux";
 import VotingList from "../VotingList";
 import store from "../Store";
-import {SET_PAGES_COUNT, UPDATE_VOTINGS} from "../reducers/VotingReducer";
+import {UPDATE_VOTINGS} from "../reducers/VotingReducer";
 import $ from 'jquery';
 
 class VotingListContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.onChangePage = this.onChangePage.bind(this);
+    }
+
     componentWillMount() {
-        this.updateVotingList();
+        this.updateVotingList(1);
     }
 
     onChangePage(number) {
-        console.log(`change number ${number}`);
+        this.updateVotingList(number);
     }
 
     updateVotingList(page = 1) {
@@ -19,13 +24,13 @@ class VotingListContainer extends React.Component {
             url : `http://localhost:8080/voter/voting/all/${page}`,
             type: 'GET',
             contentType: "application/json",
-            success : (list) => {
+            success : (answer) => {
                 store.dispatch({
                     type : UPDATE_VOTINGS,
-                    votings : list,
+                    votings : answer.list,
+                    recordsCount: answer.recordsCount,
                     currPage : page
                 });
-                store.dispatch({type : SET_PAGES_COUNT});
             },
             error : () => {
                 console.log('error message');

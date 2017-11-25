@@ -1,6 +1,5 @@
 export const UPDATE_VOTINGS = 'UPDATE_VOTINGS';
 export const SET_PROPS = 'SET_PROPS';
-export const SET_PAGES_COUNT = 'SET_PAGES_COUNT';
 
 const initialVoteState = {
     votings: [],
@@ -17,11 +16,7 @@ const votingReducer = (state = initialVoteState, action) => {
                     return voting1.closingDate < voting2.closingDate;
                 }),
                 currPage: action.currPage,
-                pagesCount: action.pagesCount
-            });
-        case SET_PAGES_COUNT :
-            return Object.assign({}, state, {
-                pagesCount: Math.ceil(state.votings.length/state.recordCountPerPage) + 1
+                pagesCount: Math.ceil(action.recordsCount / state.recordCountPerPage)
             });
         case SET_PROPS :
             return Object.assign({}, state, {recordCountPerPage: action.recordCountPerPage});
