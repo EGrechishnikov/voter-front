@@ -42,7 +42,7 @@ h1 {
     font-weight: bold;
 }
 
-.center p {
+#validation-message {
     color: #c50000;
 }
 

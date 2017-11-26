@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import Timer from "./Timer";
 import Variant from "./Variant";
+import "../style/css/voting.css";
 
 class Voting extends React.Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class Voting extends React.Component {
     }
 
     componentWillMount() {
-        if(this.props.voting === null) {
+        if (this.props.voting === null) {
             this.props.history.push('/');
         }
     }
@@ -34,15 +35,18 @@ class Voting extends React.Component {
 
     render() {
         let voting = this.props.voting;
-        if(voting === null) {
+        if (voting === null) {
             return null;
         }
         let openDate = new Date(voting.openDate).toLocaleString('ru');
         return (
-            <div>
-                <div>
-                    <h1>{voting.name}</h1>
-                    <p>От {voting.creator.login}</p>
+            <div className="container">
+                <div className="row">
+                    <header className="center">
+                        <h1>{voting.name}</h1>
+                        <p>by {voting.creator.login}</p>
+                        <h3>{voting.description}</h3>
+                    </header>
                     <p>Создано: {openDate}</p>
                     {
                         this.state.alive ?
@@ -50,7 +54,6 @@ class Voting extends React.Component {
                                    closeVoting={this.setVotingClosed}/> :
                             <h3>Голосование окончено!</h3>
                     }
-                    <h3>{voting.description}</h3>
                     {
                         voting.variants.map((variant) => {
                             return (<Variant key={variant.id}

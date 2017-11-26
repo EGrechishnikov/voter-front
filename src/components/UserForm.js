@@ -60,7 +60,7 @@ class UserForm extends React.PureComponent {
                                         this.password = input;
                                     }} type="password" className="form-control"/>
                                     <div className="center mt-30">
-                                        <p>{this.props.validationMessage}</p>
+                                        <p id="validation-message">{this.props.validationMessage}</p>
                                         <button className="button">Отправить</button>
                                     </div>
                                 </div>
