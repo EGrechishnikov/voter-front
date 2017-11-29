@@ -1,6 +1,7 @@
 .root {
     background-image: url("../images/back.jpg");
-    background-size: cover;
+    background-size: 100vw;
+    background-repeat: no-repeat;
     min-height: 100vh;
     transition: background-image 1.5s ease-in-out;
 }

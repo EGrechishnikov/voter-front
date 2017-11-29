@@ -1,6 +1,7 @@
 #home {
     background-image: url("../images/blur.jpg");
-    background-size: cover;
+    background-size: 100vw;
+    background-repeat: no-repeat;
     height: 100vh;
     transition: background-image 1.5s ease-in-out;
 }
