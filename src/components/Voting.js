@@ -55,7 +55,8 @@ class Voting extends React.Component {
                                        closeVoting={this.setVotingClosed}/> :
                                 <div>
                                     <h3 className="over">Голосование окончено!</h3>
-                                    <Link to={`/voting/${voting.id}/result`}>Просмотреть результат</Link>
+                                    <Link className="result-link"
+                                          to={`/voting/${voting.id}/result`}>Просмотреть результат</Link>
                                 </div>
                         }
                         {

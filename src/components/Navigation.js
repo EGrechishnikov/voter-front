@@ -8,6 +8,7 @@ class Navigation extends React.Component {
         super(props);
         this.state = {navShowed: false};
         this.showHideNav = this.showHideNav.bind(this);
+        this.onMouseLeaveHandle = this.onMouseLeaveHandle.bind(this);
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -28,10 +29,16 @@ class Navigation extends React.Component {
         this.setState({navShowed: !isShowed});
     }
 
+    onMouseLeaveHandle() {
+        if(this.state.navShowed) {
+            setTimeout(this.showHideNav, 500);
+        }
+    }
+
     render() {
         let login = this.props.user !== null ? this.props.user.login : '';
         return (
-            <nav className='navbar navbar-inverse navbar-showed'>
+            <nav className='navbar navbar-inverse navbar-showed' onMouseLeave={this.onMouseLeaveHandle}>
                 <div className="container-fluid">
                     <div className="col-xs-2 col-sm-offset-1">
                         <Link className="navbar-brand" to="/">VOTER</Link>
