@@ -46,7 +46,7 @@ class UserForm extends React.PureComponent {
                     <div className=" col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-2 form">
                         <form onSubmit={this.submit} className="form-horizontal">
                             <div className="form-group">
-                                <label className="col-xs-12 center col-sm-2 col-sm-offset-0 control-label">Логин</label>
+                                <label className="col-xs-12 text-center col-sm-2 col-sm-offset-0 control-label">Логин</label>
                                 <div className="col-sm-9 col-sm-offset-1">
                                     <input ref={(input) => {
                                         this.login = input;
@@ -54,14 +54,20 @@ class UserForm extends React.PureComponent {
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label className="col-xs-12 center col-sm-2 col-sm-offset-0 control-label">Пароль</label>
+                                <label className="col-xs-12 text-center col-sm-2 col-sm-offset-0 control-label">Пароль</label>
                                 <div className="col-sm-9 col-sm-offset-1">
                                     <input ref={(input) => {
                                         this.password = input;
                                     }} type="password" className="form-control"/>
-                                    <div className="center mt-30">
+                                    <div className="text-center mt-30">
                                         <p id="validation-message">{this.props.validationMessage}</p>
-                                        <button className="button">Отправить</button>
+                                        <button className="button">
+                                            {
+                                                this.props.isLoginPage ?
+                                                    "Войти" :
+                                                    "Зарегистрироваться"
+                                            }
+                                        </button>
                                     </div>
                                 </div>
                             </div>

@@ -8,8 +8,8 @@ import VotingListContainer from "./containters/VotingListContainer";
 import CreateVotingContainer from "./containters/CreateVotingContainer";
 import VotingContainer from "./containters/VotingContainer";
 import ResultContainer from "./containters/ResultContainer";
-import Navigation from "./Navigation";
 import HomeContainer from "./containters/HomeContainer";
+import NavigationContainer from "./containters/NavigationContainer";
 // import {whyDidYouUpdate} from "why-did-you-update";
 
 // whyDidYouUpdate(React);
@@ -21,7 +21,7 @@ class App extends React.Component {
                 {
                     this.props.valid ?
                         <div>
-                            <Navigation logout={this.props.logout} user={this.props.user}/>
+                            <NavigationContainer user={this.props.user}/>
                             <Switch>
                                 <Route path="/list" component={VotingListContainer}/>
                                 <Route path="/create" component={CreateVotingContainer}/>

@@ -27,7 +27,7 @@ class Pagination extends React.PureComponent {
         if(this.props.pagesCount  > 1) {
             return(
                 <div className="row">
-                    <nav className="col-sm-8 col-sm-offset-2 center">
+                    <nav className="col-sm-8 col-sm-offset-2 text-center">
                         <ul className="pagination pagination-lg">
                             {this.calculateButtons()}
                         </ul>

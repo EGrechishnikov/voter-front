@@ -43,7 +43,7 @@ class Voting extends React.Component {
         return (
             <div className="voting-root">
                 <div className="container">
-                    <div className="row center content">
+                    <div className="row text-center content">
                         <header>
                             <h1>{voting.name}</h1>
                             <p>by {voting.creator.login}</p>
@@ -55,13 +55,17 @@ class Voting extends React.Component {
                                        closeVoting={this.setVotingClosed}/> :
                                 <div>
                                     <h3 className="over">Голосование окончено!</h3>
-                                    <Link className="result-link"
-                                          to={`/voting/${voting.id}/result`}>Просмотреть результат</Link>
+                                    <div className="mt-30">
+                                        <Link className="result-link"
+                                              to={`/voting/${voting.id}/result`}>Просмотреть результат</Link>
+                                    </div>
                                 </div>
                         }
                         {
                             voting.imageLink !== null ?
-                                <img src={voting.imageLink} alt="Голосование"/> : null
+                                <div className="mt-30">
+                                    <img src={voting.imageLink} alt="Голосование"/>
+                                </div> : null
                         }
                         {
                             alive ?

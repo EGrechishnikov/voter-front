@@ -1,0 +1,35 @@
+label {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+input {
+    height: 35px;
+    font-size: 20px;
+    line-height: 20px;
+    color: black;
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+}
+
+input[type="text"] {
+    padding-left: 10px;
+}
+
+input[type="file"] {
+    color: #fafafa;
+}
+
+button {
+    color: black;
+}
+
+button.button {
+    padding: 5px 26px;
+    margin-top: -7px;
+}
+
+.content {
+    margin-top: 17vh !important;
+}

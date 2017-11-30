@@ -54,6 +54,10 @@
     background-size: cover;
 }
 
+.dropdown-button:hover {
+    cursor: pointer;
+}
+
 #down-button {
     transform: rotate(90deg);
 }

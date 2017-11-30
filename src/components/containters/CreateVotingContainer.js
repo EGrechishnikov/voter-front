@@ -1,6 +1,5 @@
 import React from 'react';
 import CreateVoting from "../CreateVoting";
-import {connect} from "react-redux";
 import $ from 'jquery';
 
 class CreateVoteContainer extends React.Component {
@@ -30,16 +29,9 @@ class CreateVoteContainer extends React.Component {
     render() {
         return(
             <CreateVoting createVoting={this.createVote}
-                          votings={this.props.votings}
                           history={this.props.history}/>
         );
     }
 }
 
-const mapStateToProps = (store) => {
-    return {
-        votes : store.votingState.votings
-    };
-};
-
-export default connect(mapStateToProps)(CreateVoteContainer);
+export default CreateVoteContainer;

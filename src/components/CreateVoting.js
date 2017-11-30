@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import Variant from "./Variant";
 import CreateVariant from "./CreateVariant";
+import '../style/css/create-voting.css';
 
 class CreateVoting extends React.Component {
     constructor(props) {
@@ -68,36 +69,67 @@ class CreateVoting extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Создать голосование</h1>
-                <label>Название</label><input ref={(input) => {
-                this.name = input
-            }} type="text"/>
-                <label>Описание</label><input ref={(input) => {
-                this.description = input
-            }} type="text"/>
-                <label>Изображение</label><input ref={(input) => {
-                this.imageInput = input
-            }} type="file"/>
-                <h2>Варианты</h2>
-                {
-                    this.state.variants.map((variant) => {
-                        return <Variant key={variant.name}
-                                        name={variant.name}
-                                        description={variant.description}/>
-                    })
-                }
-                {
-                    this.state.showCreateVariant ?
-                        <div>
-                            <CreateVariant createVariant={this.addVariant}/>
-                            <button onClick={this.hideCreateVariant}>-</button>
-                        </div> :
-                        <button onClick={this.showCreateVariant}>+</button>
-                }
-                <button onClick={this.createVoting}>Создать</button>
-                <h3>{this.state.validationMessage}</h3>
-                <Link to="/" onClick={this.returnBack}>Назад</Link>
+            <div className="root root-loaded">
+                <div className="container">
+                    <div className="row content text-center">
+                        <h1>Создать голосование</h1>
+                        <div className="row mt-30">
+                            <div className="col-sm-3 col-sm-offset-1 text-right">
+                                <label>Название</label>
+                            </div>
+                            <div className="col-sm-5 text-left">
+                                <input ref={(input) => {
+                                    this.name = input
+                                }} type="text"/>
+                            </div>
+                        </div>
+                        <div className="row mt-30">
+                            <div className="col-sm-3 col-sm-offset-1 text-right">
+                                <label>Описание</label>
+                            </div>
+                            <div className="col-sm-5 text-left">
+                                <input ref={(input) => {
+                                    this.description = input
+                                }} type="text"/>
+                            </div>
+                        </div>
+                        <div className="row mt-30">
+                            <div className="col-sm-3 col-sm-offset-1 text-right">
+                                <label>Изображение</label>
+                            </div>
+                            <div className="col-sm-5 text-left">
+                                <input ref={(input) => {
+                                    this.imageInput = input
+                                }} type="file"/>
+                            </div>
+                        </div>
+                        <h2>Варианты</h2>
+                        {
+                            this.state.variants.map((variant) => {
+                                return <Variant key={variant.name}
+                                                name={variant.name}
+                                                description={variant.description}/>
+                            })
+                        }
+                        {
+                            this.state.showCreateVariant ?
+                                <div>
+                                    <CreateVariant createVariant={this.addVariant}/>
+                                    <button onClick={this.hideCreateVariant}>-</button>
+                                </div> :
+                                <button onClick={this.showCreateVariant}>+</button>
+                        }
+                        <h3>{this.state.validationMessage}</h3>
+                        <div className="row mt-30">
+                            <div className="col-sm-3 col-sm-offset-3 text-right">
+                                <button onClick={this.createVoting} className="button">Создать</button>
+                            </div>
+                            <div className="col-sm-3 text-left">
+                                <Link to="/" onClick={this.returnBack} className="button">Назад</Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
