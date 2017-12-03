@@ -25,11 +25,26 @@ button {
     color: black;
 }
 
-button.button {
+button.button, button.button:focus {
     padding: 5px 26px;
     margin-top: -7px;
 }
 
 .content {
     margin-top: 17vh !important;
+    margin-bottom: 50px;
+}
+
+.add-button {
+    font-size: 22px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+    margin-left: 20px;
+    line-height: 25px;
+}
+
+.add-button:hover {
+    background-color: #cacaca;
 }

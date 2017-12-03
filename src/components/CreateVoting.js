@@ -103,7 +103,15 @@ class CreateVoting extends React.Component {
                                 }} type="file"/>
                             </div>
                         </div>
-                        <h2>Варианты</h2>
+                        <h2>
+                            Варианты
+                            {
+                                this.state.showCreateVariant ?
+                                    <button className="add-button" onClick={this.hideCreateVariant}>-</button>
+                                    :
+                                    <button className="add-button" onClick={this.showCreateVariant}>+</button>
+                            }
+                        </h2>
                         {
                             this.state.variants.map((variant) => {
                                 return <Variant key={variant.name}
@@ -113,11 +121,7 @@ class CreateVoting extends React.Component {
                         }
                         {
                             this.state.showCreateVariant ?
-                                <div>
-                                    <CreateVariant createVariant={this.addVariant}/>
-                                    <button onClick={this.hideCreateVariant}>-</button>
-                                </div> :
-                                <button onClick={this.showCreateVariant}>+</button>
+                                <CreateVariant createVariant={this.addVariant}/> : null
                         }
                         <h3>{this.state.validationMessage}</h3>
                         <div className="row mt-30">
