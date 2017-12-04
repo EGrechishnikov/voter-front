@@ -77,7 +77,7 @@ class Voting extends React.Component {
                                 }) : null
                         }
                         {
-                            this.state.voted ?
+                            this.state.voted || this.props.chosenVariantId > 0 ?
                                 <p>Проголосовано.</p> :
                                 alive ?
                                     <div>

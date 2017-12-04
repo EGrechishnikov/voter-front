@@ -7,14 +7,13 @@ import store from '../Store';
 
 class ResultContainer extends React.Component {
     componentWillMount() {
-        console.log('req');
         $.ajax({
             url: `http://localhost:8080/voter/voting/result/${this.props.match.params.id}`,
             type: 'GET',
             success: (answer) => {
                 store.dispatch({
-                    type : ADD_RESULT,
-                    result : answer
+                    type: ADD_RESULT,
+                    result: answer
                 })
             },
             error: () => {
@@ -25,20 +24,29 @@ class ResultContainer extends React.Component {
 
     componentWillUnmount() {
         store.dispatch({
-            type : CLEAR_RESULT
+            type: CLEAR_RESULT
         })
     }
 
     render() {
-        return(
-            <Result result={this.props.result} votingId={this.props.match.params.id}/>
+        return (
+            <Result result={this.props.result}
+                    totalCount={this.props.totalCount}
+                    votingId={this.props.match.params.id}/>
         );
     }
 }
 
 const mapStateToProps = (store) => {
+    let totalCount = 0;
+    if(store.resultState.result !== null) {
+        store.resultState.result.forEach((variant) => {
+            totalCount += variant.count;
+        });
+    }
     return {
-        result : store.resultState.result
+        result: store.resultState.result,
+        totalCount: totalCount
     }
 };
 

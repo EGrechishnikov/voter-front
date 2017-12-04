@@ -30,11 +30,12 @@ class CreateVoting extends React.Component {
             validationMessage = 'Вариантов не может быть больше 5'
         }
         this.setState({validationMessage: validationMessage});
+        return validationMessage === '';
     }
 
     createVoting() {
-        this.validation();
-        if (this.state.validationMessage === '') {
+        let valid = this.validation();
+        if (valid) {
             let voting = {
                 name: this.name.value,
                 description: this.description.value,
@@ -44,11 +45,13 @@ class CreateVoting extends React.Component {
             };
             let data = new FormData();
             let file = this.imageInput.files[0];
-            console.log(voting);
             data.append('voting', JSON.stringify(voting));
-            data.append('file', file);
-            data.append('fileName', file.name);
-            console.log(data.get('voting'));
+            console.log(file);
+            if (file !== undefined) {
+                console.log('add file');
+                data.append('file', file);
+                data.append('fileName', file.name);
+            }
             this.props.createVoting(data);
         }
     }
@@ -123,7 +126,12 @@ class CreateVoting extends React.Component {
                             this.state.showCreateVariant ?
                                 <CreateVariant createVariant={this.addVariant}/> : null
                         }
-                        <h3>{this.state.validationMessage}</h3>
+                        {
+                            this.state.validationMessage !== '' ?
+                                <div className="row">
+                                    <h3 className="col-xs-12 validation-message mt-30">{this.state.validationMessage}</h3>
+                                </div> : null
+                        }
                         <div className="row mt-30">
                             <div className="col-sm-3 col-sm-offset-3 text-right">
                                 <button onClick={this.createVoting} className="button">Создать</button>
