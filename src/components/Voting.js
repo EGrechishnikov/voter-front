@@ -7,7 +7,7 @@ import "../style/css/voting.css";
 class Voting extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {alive: true, voted: false};
+        this.state = {alive: true, voted: this.props.chosenVariantId !== null};
         this.setVotingClosed = this.setVotingClosed.bind(this);
         this.handleCreateVote = this.handleCreateVote.bind(this);
     }
@@ -34,19 +34,23 @@ class Voting extends React.Component {
     }
 
     render() {
+        console.log(this.state.alive);
+        console.log(this.state.voted);
+        let voted = this.state.voted;
         let voting = this.props.voting;
         if (voting === null) {
             return null;
         }
         let alive = this.state.alive;
         let openDate = new Date(voting.openDate).toLocaleString('ru');
+        let chosenVariantId = this.props.chosenVariantId;
         return (
             <div className="voting-root">
                 <div className="container">
                     <div className="row text-center content">
                         <header>
                             <h1>{voting.name}</h1>
-                            <p>by {voting.creator.login}</p>
+                            <p>от {voting.creator.login}</p>
                             <h3>{voting.description}</h3>
                         </header>
                         {
@@ -72,22 +76,15 @@ class Voting extends React.Component {
                                 voting.variants.map((variant) => {
                                     return (<Variant key={variant.id}
                                                      name={variant.name}
-                                                     chosen={variant.id === this.props.chosenVariantId}
+                                                     chosen={variant.id === chosenVariantId}
+                                                     readyToVoting={alive && !voted}
+                                                     action={this.handleCreateVote.bind(this, variant)}
                                                      description={variant.description}/>);
                                 }) : null
                         }
                         {
-                            this.state.voted || this.props.chosenVariantId > 0 ?
-                                <p>Проголосовано.</p> :
-                                alive ?
-                                    <div>
-                                        <button onClick={this.handleCreateVote.bind(this, voting.variants[0])}>
-                                            Вариант1
-                                        </button>
-                                        <button onClick={this.handleCreateVote.bind(this, voting.variants[1])}>
-                                            Вариант2
-                                        </button>
-                                    </div> : null
+                            voted || chosenVariantId > 0 ?
+                                <p>Проголосовано.</p> : null
                         }
                         <div className="col-sm-12 mt-30">
                             <p>Добавлено: {openDate}</p>

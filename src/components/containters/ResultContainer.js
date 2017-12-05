@@ -25,7 +25,7 @@ class ResultContainer extends React.Component {
     componentWillUnmount() {
         store.dispatch({
             type: CLEAR_RESULT
-        })
+        });
     }
 
     render() {

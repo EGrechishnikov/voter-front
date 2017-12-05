@@ -13,7 +13,7 @@ class HomeContainer extends React.Component {
                store.dispatch({
                    type: SET_PROPS,
                    recordCountPerPage: answer
-               })
+               });
            },
             error: () => {
                console.log('error');

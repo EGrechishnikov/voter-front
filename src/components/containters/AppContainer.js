@@ -34,7 +34,7 @@ class AppContainer extends React.Component {
                 store.dispatch({
                     type: LOAD_MY_VOTES,
                     myVotes: votes
-                })
+                });
             },
             error: () => {
                 console.log('error');

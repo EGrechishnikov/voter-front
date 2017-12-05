@@ -1,0 +1,5 @@
+.ready:hover {
+    cursor: pointer;
+    background-color: #212121;
+    box-shadow: 3px 3px 11px black;
+}
