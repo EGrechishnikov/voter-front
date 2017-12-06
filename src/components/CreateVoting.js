@@ -81,7 +81,7 @@ class CreateVoting extends React.Component {
                                 <label>Название</label>
                             </div>
                             <div className="col-sm-5 text-left">
-                                <input ref={(input) => {
+                                <input ref={input => {
                                     this.name = input
                                 }} type="text"/>
                             </div>
@@ -91,7 +91,7 @@ class CreateVoting extends React.Component {
                                 <label>Описание</label>
                             </div>
                             <div className="col-sm-5 text-left">
-                                <input ref={(input) => {
+                                <input ref={input => {
                                     this.description = input
                                 }} type="text"/>
                             </div>
@@ -101,7 +101,7 @@ class CreateVoting extends React.Component {
                                 <label>Изображение</label>
                             </div>
                             <div className="col-sm-5 text-left">
-                                <input ref={(input) => {
+                                <input ref={input => {
                                     this.imageInput = input
                                 }} type="file"/>
                             </div>
@@ -116,7 +116,7 @@ class CreateVoting extends React.Component {
                             }
                         </h2>
                         {
-                            this.state.variants.map((variant) => {
+                            this.state.variants.map(variant => {
                                 return <Variant key={variant.name}
                                                 name={variant.name}
                                                 description={variant.description}/>

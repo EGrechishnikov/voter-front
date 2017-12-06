@@ -12,7 +12,7 @@ class PaginationContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (store) => {
+const mapStateToProps = store => {
     return {
         currPage : store.votingState.currPage,
         pagesCount: store.votingState.pagesCount

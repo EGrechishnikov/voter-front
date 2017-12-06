@@ -2,7 +2,7 @@ import React from 'react';
 import checked from '../style/images/checked.svg';
 import '../style/css/variant.css';
 
-const Variant = (props) => {
+const Variant = props => {
     let readyToVoting = props.readyToVoting;
     return (
         <div className="row">

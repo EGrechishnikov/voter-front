@@ -35,7 +35,7 @@ class RegistrationContainer extends React.Component {
             data: JSON.stringify(user),
             contentType: "application/json",
             type: 'POST',
-            success: (answer) => {
+            success: answer => {
                 if (answer === true) {
                     store.dispatch({
                         type: USER_ADD,

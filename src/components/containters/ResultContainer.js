@@ -10,7 +10,7 @@ class ResultContainer extends React.Component {
         $.ajax({
             url: `http://localhost:8080/voter/voting/result/${this.props.match.params.id}`,
             type: 'GET',
-            success: (answer) => {
+            success: answer => {
                 store.dispatch({
                     type: ADD_RESULT,
                     result: answer
@@ -37,10 +37,10 @@ class ResultContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (store) => {
+const mapStateToProps = store => {
     let totalCount = 0;
     if(store.resultState.result !== null) {
-        store.resultState.result.forEach((variant) => {
+        store.resultState.result.forEach(variant => {
             totalCount += variant.count;
         });
     }

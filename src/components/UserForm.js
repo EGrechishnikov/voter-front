@@ -48,7 +48,7 @@ class UserForm extends React.PureComponent {
                             <div className="form-group">
                                 <label className="col-xs-12 text-center col-sm-2 col-sm-offset-0 control-label">Логин</label>
                                 <div className="col-sm-9 col-sm-offset-1">
-                                    <input ref={(input) => {
+                                    <input ref={input => {
                                         this.login = input;
                                     }} type="text" className="form-control"/>
                                 </div>
@@ -56,7 +56,7 @@ class UserForm extends React.PureComponent {
                             <div className="form-group">
                                 <label className="col-xs-12 text-center col-sm-2 col-sm-offset-0 control-label">Пароль</label>
                                 <div className="col-sm-9 col-sm-offset-1">
-                                    <input ref={(input) => {
+                                    <input ref={input => {
                                         this.password = input;
                                     }} type="password" className="form-control"/>
                                     <div className="text-center mt-30">

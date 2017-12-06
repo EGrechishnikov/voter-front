@@ -73,7 +73,7 @@ class Voting extends React.Component {
                         }
                         {
                             alive ?
-                                voting.variants.map((variant) => {
+                                voting.variants.map(variant => {
                                     return (<Variant key={variant.id}
                                                      name={variant.name}
                                                      chosen={variant.id === chosenVariantId}

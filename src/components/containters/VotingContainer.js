@@ -49,13 +49,13 @@ class VotingContainer extends React.Component {
 
 const mapStateToProps = (store, ownProps) => {
     let votingId = Number(ownProps.match.params.id);
-    let voting = store.votingState.votings.filter((voting) => {
+    let voting = store.votingState.votings.filter(voting => {
         return voting.id === votingId
     })[0];
     voting = voting === undefined ? null : voting;
     let chosenVariantId = null;
     if (voting !== null) {
-        let vote = store.voteState.myVotes.filter((vote) => {
+        let vote = store.voteState.myVotes.filter(vote => {
             return vote.votingId === votingId;
         })[0];
         chosenVariantId = vote !== undefined ? vote.variantId : null;
