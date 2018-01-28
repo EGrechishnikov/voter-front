@@ -34,8 +34,6 @@ class Voting extends React.Component {
     }
 
     render() {
-        console.log(this.state.alive);
-        console.log(this.state.voted);
         let voted = this.state.voted;
         let voting = this.props.voting;
         if (voting === null) {
@@ -84,7 +82,7 @@ class Voting extends React.Component {
                         }
                         {
                             voted || chosenVariantId > 0 ?
-                                <p>Проголосовано.</p> : null
+                                <p className='mt-30'>Проголосовано.</p> : null
                         }
                         <div className="col-sm-12 mt-30">
                             <p>Добавлено: {openDate}</p>
