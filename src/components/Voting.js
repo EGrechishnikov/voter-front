@@ -78,15 +78,19 @@ class Voting extends React.Component {
                         }
                         {
                             this.state.voted || this.props.chosenVariantId > 0 ?
-                                <p>Проголосовано.</p> :
+                                <p className='mt-30'>Проголосовано.</p> :
                                 alive ?
                                     <div>
-                                        <button onClick={this.handleCreateVote.bind(this, voting.variants[0])}>
+                                        <a className='button'
+                                           style={{position: 'relative',top: '10px', right: '5px'}}
+                                           onClick={this.handleCreateVote.bind(this, voting.variants[0])}>
                                             Вариант1
-                                        </button>
-                                        <button onClick={this.handleCreateVote.bind(this, voting.variants[1])}>
+                                        </a>
+                                        <a className='button'
+                                           style={{position: 'relative',top: '10px', left: '5px'}}
+                                           onClick={this.handleCreateVote.bind(this, voting.variants[1])}>
                                             Вариант2
-                                        </button>
+                                        </a>
                                     </div> : null
                         }
                         <div className="col-sm-12 mt-30">

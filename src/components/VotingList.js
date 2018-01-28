@@ -36,7 +36,7 @@ class VotingList extends React.PureComponent {
                                     return <div key={voting.id} className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 voting">
                                         <Link to={'/voting/' + voting.id}>
                                             <h2 className="name text-center">{voting.name}</h2>
-                                            <p className="creator text-center">{voting.creator.login}</p>
+                                            <p className="creator text-center">от {voting.creator.login}</p>
                                             <p className="description text-center">{voting.description}</p>
                                         </Link>
                                     </div>
