@@ -32,7 +32,7 @@ class VotingList extends React.PureComponent {
                         </div>
                         <div id="list" className="col-sm-12">
                             {
-                                this.props.votings.map((voting) => {
+                                this.props.votings.map(voting => {
                                     return <div key={voting.id} className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 voting">
                                         <Link to={'/voting/' + voting.id}>
                                             <h2 className="name text-center">{voting.name}</h2>

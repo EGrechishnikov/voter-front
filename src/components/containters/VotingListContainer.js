@@ -24,7 +24,7 @@ class VotingListContainer extends React.Component {
             url : `http://localhost:8080/voter/voting/all/${page}`,
             type: 'GET',
             contentType: "application/json",
-            success : (answer) => {
+            success : answer => {
                 store.dispatch({
                     type : UPDATE_VOTINGS,
                     votings : answer.list,
@@ -46,7 +46,7 @@ class VotingListContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (store) => {
+const mapStateToProps = store => {
     return {
         votings : store.votingState.votings
     };

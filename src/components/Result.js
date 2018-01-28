@@ -12,7 +12,7 @@ class Result extends React.Component {
                         <h1>Результат</h1>
                         {
                             this.props.result !== null ?
-                                this.props.result.map((variant) => {
+                                this.props.result.map(variant => {
                                     return <ResultVariant id={variant.variantId}
                                                           key={variant.variantId}
                                                           count={variant.count}

@@ -26,7 +26,7 @@ class CreateVariant extends React.Component {
                         <label>Название</label>
                     </div>
                     <div className="col-sm-5 text-left">
-                        <input ref={(input) => {
+                        <input ref={input => {
                             this.name = input
                         }} type="text"/>
                     </div>
@@ -36,7 +36,7 @@ class CreateVariant extends React.Component {
                         <label>Описание</label>
                     </div>
                     <div className="col-sm-5 text-left">
-                        <input ref={(input) => {
+                        <input ref={input => {
                             this.description = input
                         }} type="text"/>
                     </div>

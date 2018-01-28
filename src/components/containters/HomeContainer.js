@@ -9,11 +9,11 @@ class HomeContainer extends React.Component {
         $.ajax({
            url: 'http://localhost:8080/voter/voting/settings',
            type: 'GET',
-           success: (answer) => {
+           success: answer => {
                store.dispatch({
                    type: SET_PROPS,
                    recordCountPerPage: answer
-               })
+               });
            },
             error: () => {
                console.log('error');

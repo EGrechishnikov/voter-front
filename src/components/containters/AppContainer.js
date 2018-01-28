@@ -30,11 +30,11 @@ class AppContainer extends React.Component {
             url: `http://localhost:8080/voter/votes/get/${user.id}`,
             type: 'GET',
             contentType: "application/json",
-            success: (votes) => {
+            success: votes => {
                 store.dispatch({
                     type: LOAD_MY_VOTES,
                     myVotes: votes
-                })
+                });
             },
             error: () => {
                 console.log('error');
@@ -57,7 +57,7 @@ class AppContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (store) => {
+const mapStateToProps = store => {
     return {
         user: store.userState.user
     }
